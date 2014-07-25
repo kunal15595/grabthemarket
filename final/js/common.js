@@ -1,0 +1,172 @@
+var status, flag = [], length = 21; 
+
+jQuery(document).ready(function(){
+	
+
+	for(var i = 1; i <= length; i++) {
+	    flag.push(true);
+	}
+
+	jQuery('.list').click(function() {
+
+		var num = parseInt(jQuery( this ).attr( "id" ));
+		// console.log(status,status);
+		if (status=='current') {
+			clearall();
+			jQuery(this).css({
+				// background: "linear-gradient(to right, #aaaaaa, white)",
+				"color": "#222222",
+				width: "100%",
+				"text-align": "center",
+				"background-color": "#aaaaaa"
+			});
+			flag[num]=false;
+		}
+	});
+	jQuery('.trends').click(function() {
+		// alert("yahoo");
+	});
+});
+
+	function setStatus(input) {
+		status = input;
+	// 	console.log(status);
+	}
+	function getStatus () {
+		return status;
+	}
+	function get (num) {
+		return flag[num];
+	}
+	function set (num,bol) {
+		flag[num]=bol;
+	}
+	function add_page (argument) {
+		var id= '#'+String(argument);
+		jQuery(id).css({
+			// "color": "black",
+			width: "100%",
+			// "text-align": "center",
+			// "background-color": "#00EE00"
+		});
+	}
+	function add_tenure (argument) {
+		var id= '#'+String(argument);
+		jQuery(id).css({
+			"color": "#cccc99",
+			// "border": "1px solid white",
+			// "opacity": "0.5",
+			// "background": "inherit"
+			// height: "80%",
+			// "text-align": "center",
+			"background-color": "#666633"
+		});
+	}
+	function add (num) {
+		var x='#'+String(num);
+		jQuery(x).css({
+		  // background: "linear-gradient(to right, #aaaaaa, white)",
+		  // "color": "#222222",
+		  width: "100%",
+		  "font-weight": "bold",
+		  height: "20px",
+		  // "text-align": "center",
+		  "background-color": "#000000"
+		});
+		flag[num]=false;
+	}
+	function remove (num) {
+		var x='#'+String(num);
+		jQuery(x).css(
+		{
+			// "color": "#dddddd",
+			width: "80%",
+			// "text-align": "center",
+			"background-color": "#333333"
+		});
+		flag[num]=true;
+	}
+
+	function clearall () {
+		jQuery('.list').css(
+		{
+			"color": "#dddddd",
+			width: "80%",
+			"text-align": "center",
+			"background-color": "#222222"
+		});
+		for(var i = 1; i <= 21; i++) {
+		    flag[i]=true;
+		}
+
+	}
+
+	function cur_price (comp) {
+		var ret, now = (new Date()).getTime(), game = JSON.parse(sessionStorage.game);
+		if(now < game.game_start)return past_price(comp);
+		jQuery.ajax({
+            url: '../data/'+String(comp)+'.txt',
+            async: false, 
+            success: function( data, status ) {
+                var prices = data.split(/\n|,|\s+/);
+                // console.log(prices);
+                var rows = prices.length;
+                // console.log(rows);
+                var game = JSON.parse(sessionStorage.game);
+                var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*5));
+                // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
+                ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
+                // console.log("ret", ret);
+            },
+            error: function( jqXHR, status, error ) {
+                console.log( 'Error: ' + error );
+            }
+        });
+        return parseFloat(ret); 
+        
+	}
+	
+	function past_price (comp) {
+		var ret;
+		jQuery.ajax({
+            url: '../data/'+String(comp)+'.txt',
+            async: false, 
+            success: function( data, status ) {
+                var prices = data.split(/\n|,|\s+/);
+                // console.log(prices);
+                var rows = prices.length;
+                // console.log(rows);
+                var game = JSON.parse(sessionStorage.game);
+                ret = prices[(game.game_start)%(prices.length-1)];
+                
+            },
+            error: function( jqXHR, status, error ) {
+                console.log( 'Error: ' + error );
+            }
+        });
+        return parseFloat(ret); 
+	}
+
+	function cur_sec () {
+		var game = JSON.parse(sessionStorage.game);
+		return new Date().getTime() - game.game_start;
+	}
+	
+	function block (mess) {
+        window.parent.jQuery.blockUI({ 
+            message: jQuery('.container'),
+            css: { 
+            width: '150px',
+            height: '150px',
+            // border: '2px solid green',
+            'margin-left': '0px auto',
+            'margin-top': '0px auto',
+            border: 'none', 
+            padding: '15px', 
+            backgroundColor: 'transparent', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: 0.5, 
+            color: '#fff' 
+        } });   
+    }

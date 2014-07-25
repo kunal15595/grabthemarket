@@ -1,0 +1,31 @@
+html, body {
+        overflow: hidden;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+     }
+body{
+    background: url(../../images/pattern_40.gif);
+	margin-top: 20px;
+	font: 14px normal Verdana, Arial, Helvetica, sans-serif;
+}
+input{
+	background: url(../../images/pattern_40.gif);
+}
+label{
+	color: #758591;
+}
+#wrap, #rest{
+	float: left;
+}
+#list{
+	float: left;
+	/*display: inline;*/
+
+}
+#right{
+	font-size: 14px;
+}
+.list{
+	
+}

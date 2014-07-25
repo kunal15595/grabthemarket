@@ -1,0 +1,18 @@
+html, body {
+        overflow: hidden;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+     }
+h3{
+    margin-left: 2em;
+    color: #77ee77;
+}
+p{
+    margin-left: 2em;
+    color:white;
+}
+
+h2{
+    color:green;
+}

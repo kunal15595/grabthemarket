@@ -1,0 +1,114 @@
+html, body {
+    position:relative;
+        overflow: hidden;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+     }
+body{
+	font-family: "Comic Sans MS", sans-serif;
+
+}
+iframe{
+    border: none;
+    position: relative;
+}
+#wrap{
+	position: relative;
+	height: 99%;
+	float: left;
+	width: 99%;
+	/*border: 2px solid white;*/
+	/*display: inline-block;*/
+	vertical-align: top;
+	/*background-color: white;*/
+}
+
+#tabs{
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	/*float: right;*/
+	height: 7%;
+	width: 99%;
+	border-radius: 4px;
+	opacity: 9;
+    
+	/*border: 2px solid blue;*/
+	/*background-color: blue;*/
+}
+#show{
+	position: absolute;
+	float: right;
+	display: inline-block;
+	vertical-align: bottom;
+	width: 99.5%;
+	float: right;
+	height: 90%;
+	bottom: 0px;
+	/*border: 2px solid brown;*/
+	/*background-color: red;*/
+}
+.trends{
+	float: left;
+	/*border: 2px solid black;*/
+	/*background-image: url('../../images/tabs.png');*/
+	/*background-size: 100%;*/
+	color: #666633;
+	background-color: #cccc99;
+	margin-left: 2px;
+	/*margin: 2px;*/
+	width: 150px;
+	height: 60%;
+	/*padding: 1px;*/
+	text-align: center;
+	vertical-align: top;
+	cursor: pointer;
+	/*-webkit-border-top-left-radius: 1px;
+	-webkit-border-top-right-radius: 2px;*/
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 4px;
+
+	/*-moz-border-radius-topleft: 1px;
+	-moz-border-radius-topright: 2px;*/
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 4px;
+
+	/*border-top-left-radius: 1px;
+	border-top-right-radius: 2px;*/
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 4px;
+
+	-webkit-transition: 0.2s ease-in-out;
+	-moz-transition: 0.2s ease-in-out;
+	-o-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+.trends:hover{
+	/*background-color: #dddddd;*/
+	-webkit-transform: translate(0, -0.3em);
+	-moz-transform: translate(0, -0.3em);
+	-o-transform: translate(0, -0.3em);
+	-ms-transform: translate(0, -0.3em);
+	transform: translate(0, -0.3em);
+}
+#historical{
+	margin-left: 100px;
+}
+#show{
+    position:relative;
+    float: right;
+    width: 99%;
+    height: 91%;
+    /*border: 2px solid green;*/
+    vertical-align: bottom;
+    scroll: auto;
+}
+#showframe{
+	position: relative;
+	float:right;
+	height: 100%;
+	width: 99%;
+	/*border: 2px solid red;*/
+    vertical-align: bottom;
+}

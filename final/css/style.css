@@ -1,0 +1,393 @@
+html, body {
+        position: relative;
+        overflow: hidden;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+     }
+body{
+	
+	background-position: top left;
+	
+	/*padding: 0.5%;*/
+	
+	font-family:sans-serif;
+	/*background-color: orange;*/
+	/*border-radius: 4px;*/
+	/*color: orange;*/
+	background: inherit;
+
+
+}
+button{
+	cursor: pointer;
+	-webkit-border-top-left-radius: 1px;
+	-webkit-border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 4px;
+
+	-moz-border-radius-topleft: 1px;
+	-moz-border-radius-topright: 2px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 4px;
+
+	border-top-left-radius: 1px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 4px;
+}
+
+#main_body{
+	position: relative;
+	/*background-size: cover;*/
+	width: 100%;
+	height: 100%;
+	max-height: 1200px;
+	min-width:1000px;
+	min-height:600px;
+}
+#hold{
+    position: relative;
+	/*opacity: 0.95;*/
+	background-image: url(../../images/pattern_40.gif);
+	/*background: inherit;*/
+	width: 100%;
+	height: 90%;
+	background-color: #333333;
+	/*opacity: 0.9;*/
+	/*margin: 5px;*/
+	/*border-radius: 4px;*/
+	/*background-color: white;*/
+	/*float: right;*/
+	position: relative;
+	display: inline-block;
+	min-height:400px;
+	max-height:650px;
+	max-width:1100px;
+	
+	/*margin-left: 2px;*/
+	/*margin-top: 2px;*/
+	/*border: 1px solid grey;*/
+}
+#main{
+    position: relative;
+    vertical-align: top;
+	position: relative;
+	width: 87%;
+	min-height:600px;
+	/*margin: 5px;*/
+	/*float: right;*/
+	display: inline-block;
+	height: 600px;
+	/*background-color: white;*/
+	/*border: 1px solid green;*/
+	/*border-radius: 4px;*/
+	/*padding: 5px;*/
+	/*display: inline-block;*/
+	/*overflow-y: hidden;*/
+	/*overflow:hidden;*/
+	max-height:640px;
+}
+#mainframe{
+    position: relative; 
+	height: 95%;
+	width: 95%;
+	/*border-radius: 4px;*/
+	max-width:900px;
+	float: right;
+	min-height:390px;
+	/*margin: 7px;*/
+	/*border: 1px solid yellow;*/
+	/*display: inline-block;*/
+	max-height:630px;
+}
+#rest{
+	opacity: 0.9;
+	position: absolute;
+	width: 60%;
+	float: left;
+	/*border: 1px solid red;*/
+	height: 100%;
+}
+#left{
+    vertical-align: top;
+	opacity: 0.9;
+	position: relative;
+	text-align: center;
+	color: white;
+	z-index:902;
+	display: inline-block;
+	/*vertical-align: top;*/
+	width: 11%;
+	overflow:hidden;
+	min-width: 120px;
+	height: 79%;
+	/*float: left;*/
+	overflow:hidden;
+	/*border: 1px solid violet;*/
+	/*background-color: #eeeeee;*/
+	/*background: linear-gradient(to right, silver, white);*/
+}
+
+#right{
+	opacity: 0.9;
+	position: relative;
+	width: 10%;
+	text-align: center;
+	/*display: inline-block;*/
+	color:#eeeeee;
+	/*overflow-y: scroll;*/
+	min-width: 140px;
+	height: 100%;
+	float: right;
+	/*background-color: #eeeeee;*/
+	/*background: linear-gradient(to left, silver, white);*/
+}
+#buyslider,#sellslider{
+	position: relative;
+	float: left;
+	width: 60%;
+	margin: 40px;
+	margin-top: 60px;
+	margin-left: 60px;
+	
+}
+p{
+	width: 100%;
+	float: left;
+}
+
+#buy, #sell{
+	float: right;
+	position: relative;
+	margin-top: 60px;
+	width: 10%;
+	/*display: inline-block;*/
+}
+.list, .vertical{
+	position: relative;
+	float: right;
+	
+	/*padding: 3px;*/
+	margin-top: 3px;
+	background-color: #333333;
+	
+	cursor: pointer; 
+}
+.list{
+    position:relative;
+	float: right;
+	height: 20px;
+	font-size: 14px;
+	/*font-family: Georgia;*/
+	color: orange;
+    font-family: cursive;
+	width: 90%;
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+}
+.list:hover{
+	color: green;
+	-webkit-transform: translate(-1.2em,0);
+	-moz-transform: translate(-1.2em,0);
+	-o-transform: translate(-1.2em,0);
+	-ms-transform: translate(-1.2em,0);
+	transform: translate(-1.2em,0);
+}
+.vertical{
+    position:relative;
+	float: left;
+	font-size: 15px;
+	height: 22px;
+	color: #a1e6c5;
+	font-variant: small-caps;
+	font-style: oblique;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	width: 80%;
+}
+.vertical:hover{
+	
+	-webkit-animation-name: thumb;
+	-webkit-animation-duration: 200ms;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-timing-function: linear;
+	
+}
+.list:hover{
+	/*color: white;*/
+	width: 100%;
+	
+}
+a{
+	text-transform: none;
+	text-decoration: none;
+	/*color: black;*/
+}
+
+#top{
+    position:relative;
+    /*margin:0;*/
+	vertical-align: top;
+	height: 150px;
+	min-height: 30%;
+	width: 100%;
+	/*border: 1px solid blue;*/
+	/*display: inline-block;*/
+	overflow:hidden;
+}
+#middle{
+    position:relative;
+	min-height: 100px;
+	width: 100%;
+	overflow:hidden;
+	/*display: inline-block;*/
+	/*margin:0;*/
+	/*border: 1px solid yellow;*/
+}
+#bottom{
+    position: relative;
+	/*vertical-align: bottom;*/
+	width: 100%;
+	height: 300px;
+	
+	overflow:hidden;
+	/*display: inline-block;*/
+	/*margin-top: 50px;*/
+	
+	/*border: 2px solid red;*/
+	/*background-color: white;*/
+}
+
+#cpframe{
+	height: 100%;
+	width: 100%;
+	float: right;
+	position: relative;
+	/*border: 2px solid black;*/
+	/*display: inline-block;*/
+	vertical-align: bottom;
+	/*background-color: white;*/
+
+}
+#container{
+	opacity: 0.9;
+	position: relative;
+	width: 75%;
+	height: 75%;
+	float: left;
+	/*display: inline-block;*/
+	margin-top: 50px;
+	max-height: 400px;
+}
+#profit_header, #credit_header{
+	background-color: #333333;
+	/*color: #222222;*/
+	float: left;
+	margin-top: 20px;
+	opacity: 0.8;
+	color: violet;
+	/*padding-left: 5px;*/
+	position: relative;
+	width: 100%;
+	font-family: cursive;
+	font-variant: small-caps;
+	/*font-weight: bold;*/
+	border-top: 2px solid orange;
+	text-align: center;
+	/*border-right: 2px solid green;*/
+	/*border-radius: 2px;*/
+}
+/*#profit_header{
+	background: linear-gradient(to right, green, transparent);
+	
+}
+#credit_header{
+	background: linear-gradient(to right, green, transparent);
+	
+}*/
+#net_profit, #net_credit{
+	/*font-weight: bold;*/
+	/*background: linear-gradient(to right, transparent, #333333);*/
+	position: relative;
+	/*border-right: 2px solid green;*/
+	/*border-radius: 2px;*/
+	background-color: #333333;
+	color: #f3f363;
+	float: right;
+	font-size: 17px;
+	width: 70%;
+	text-align: center;
+	opacity: 0.8;
+	font-style: italic;
+}
+.share_bar, .buy_bar, .sell_bar{
+	/*background-color: #444444;*/
+	/*color: white;*/
+	/*border: 2px solid green;*/
+	text-align: center;
+}
+#num_shares, #buy_amount, #sell_amount, #max_buy, #max_sell, #current_price{
+	background-color: #666666;
+	font-size: 20px;
+}
+#wrap{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+iframe{
+	border: none;
+}
+#companies{
+	background-color: #228B22;
+}
+#bonus{
+	background-color: #8B0A50;
+}
+#status{
+	background-color: #0B0B61;
+}
+#portfolio{
+	background-color: #2E2E2E;
+}
+#rankings{
+	background-color: #8B4513;
+}
+#instructions{
+	background-color: #556B2F;
+}
+#manage{
+	background-color: #8B0000;
+}
+.container{
+	margin-left: 0;
+	margin-top: 0;
+	position: absolute;
+	width: 140px;
+	height: 140px;
+	/*border: 2px solid red;*/
+}
+.content{
+	/*border: 2px solid yellow;*/
+	position: relative;
+	width: 100%;
+	height: 100%;
+	float: left;
+	vertical-align: top;
+} 
+#buyslider{
+	background-color: red;
+	/*color: green;*/
+}
+#sellslider{
+	background-color: green;
+}
+
+@-webkit-keyframes thumb {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(0.9); }
+    100% { -webkit-transform: scale(1); }
+}

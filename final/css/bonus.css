@@ -1,0 +1,27 @@
+html, body {
+        overflow: hidden;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+     }
+#submit{
+    font-family: courier;
+    font-weight: bold;
+	margin: 30px;
+	margin-left: 400px;
+	/*padding-top: 30px;*/
+    cursor: pointer;
+    /*border-radius: 2px 10px 2px;*/
+    /*background: #BADA55;*/
+    width: 70px;
+    color: blue;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(28, 184, 65); /* this is a green */
+}
+#container{
+	/*margin: 30px;*/
+	padding-top: 30px;
+	width: 90%;
+    
+}
