@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link rel="stylesheet" type="text/css" href="css/portfolio.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/portfolio.css"/>
 		<script type="text/javascript" src= "../js/jq.js"></script>
 		<script type="text/javascript" src= "js/common.js"></script>
 		<script type="text/javascript" src="../js/jq-ui.js"></script>
@@ -18,9 +18,6 @@
 			$name = $_GET['inc'];
 			$file = $name.'.txt';
 			$set = false;
-		}else{
-			// die();
-			$name = 'AC';
 		}
 		$inc = 'port.php?inc='.$name;
 	?>
@@ -41,6 +38,7 @@
 
 	<script type="text/javascript">
 	var  invested, quantity, profit, company, ids = [], nums = [],
+		refreshIntervalId, clicked = false;
 		table = document.getElementById('table'),
 		list = (JSON.parse(sessionStorage.list)).companies,
 		now = (new Date()).getTime(),
@@ -119,7 +117,9 @@
 			cell2.innerHTML = quantity[i];
 			var insert = 0, diff = Math.round( (cur_price(company[i]) - past_price(company[i])) *100)/100;
 			if (now > game_start) {
-				insert = diff.toString()+'('+(Math.round(diff/past_price(company[i])*100)/100).toString()+'%)';
+				insert = diff.toString();
+				if(diff > 0)insert = '+' + insert; 
+				if(new Date().getTime() > game.game_start )insert += '('+(Math.round(diff/past_price(company[i])*100)/100).toString()+'%)';
 			}
 			cell3.innerHTML = insert;
 			
@@ -140,7 +140,9 @@
 			var temp = parseInt(ids[i].substring(4));
 			// console.log(cur_price(company[temp]) - past_price(company[temp]), cur_price(company[temp]) , past_price(company[temp]));
 			var diff = Math.round((cur_price(company[temp]) - past_price(company[temp])) *100)/100;
-			insert = diff.toString()+'('+(Math.round(diff/past_price(company[temp])*100)/100).toString()+'%)';
+			insert = diff.toString();
+			if(diff > 0)insert = '+' + insert; 
+			if(new Date().getTime() > game.game_start )insert += '('+(Math.round(diff/past_price(company[temp])*100)/100).toString()+'%)';
 			// console.log(insert,diff,cur_price(company[temp]), past_price(company[temp]));
 			document.getElementById(nums[i]).innerHTML = quantity[temp];
 			document.getElementById(ids[i]).innerHTML = insert;	
@@ -160,18 +162,27 @@
 		
 		
 	////////////////               chart              ///////////////////////
+		jQuery('.expand').effect("highlight", {}, 3000);
 		jQuery('.expand').mouseover(function() {
-			jQuery(this).css({
-				'color': 'green'
-			});
+			if(!clicked){
+				jQuery(this).css({
+					'color': 'green'
+				});
+			}
+			
 		});
 		jQuery('.expand').mouseout(function() {
-			jQuery(this).css({
-				'color': 'orange'
-			});
+			if(!clicked){
+				jQuery(this).css({
+					'color': 'orange'
+				});
+			}
+
 		});
 		jQuery('.expand').click(function() {
 			// console.log('1');
+			if(new Date().getTime() > game.game_start )clicked = true;
+			jQuery('#container').empty();	
 			var prices,rows,start,amount,d,n,invested;
 			if(now < game.game_start)return;
 			// console.log('2',now , game.game_start);
@@ -190,7 +201,7 @@
 			    }
 			});
 			var portfolio = JSON.parse(sessionStorage.portfolio);
-			console.log(portfolio);
+			// console.log(portfolio);
 			for (var i = 0; i < portfolio.length; i++) {
 				// console.log(portfolio[i].port[num-1]);
 			}
@@ -205,12 +216,15 @@
 			                // set up the updating of the chart each second
 			                var series = this.series[0];
 			                var now = (new Date()).getTime();
-			                setInterval(function() {
+			                function repeat_port() {
 			                    portfolio = JSON.parse(sessionStorage.portfolio);
+			                    console.log(portfolio[portfolio.length-1].port[num-1]);
 			                    var x = now, y = portfolio[portfolio.length-1].port[num-1];
 			                    series.addPoint([x, y], true, false);
 			                    now += 3000;
-			                }, 3000);
+			            	}
+			            	clearInterval(refreshIntervalId);
+			                refreshIntervalId = setInterval(repeat_port, 3000);
 			            }
 			        }
 			    },

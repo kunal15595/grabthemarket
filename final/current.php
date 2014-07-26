@@ -23,9 +23,6 @@
             $name = $_GET['inc'];
             $file = $name.'.txt';
             $set = false;
-        }else{
-            $file = 'AC.txt';
-            $name = 'AC';
         }
     ?>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -59,11 +56,12 @@
             var game = JSON.parse(sessionStorage.game);
             var set = "<?php echo $set;?>";
             var game_start = game.game_start;
+            var list = JSON.parse(sessionStorage.list).companies;
             // console.log("game_start",game_start);
             var now = (new Date()).getTime();
-            	
+            var temp = Math.round(Math.random()*20);
             if (set) {
-                add(11);
+                add(temp);
             }else{
                 var id = document.getElementsByName("<?php echo $name;?>")[0].id;
                 add(parseInt(id));
@@ -79,7 +77,7 @@
                 });
                 
                 jQuery.ajax({
-                        url: '../data/'+"<?php echo $file; ?>",
+                        url: '../data/'+list[temp].name+'.txt',
                         success: function( data, status ) {
                             prices = data.split(/\n|\s+/);
                             // console.log("prices", prices);
@@ -156,7 +154,7 @@
                         },
                         tooltip: {
                             formatter: function() {
-                                console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x), Highcharts.numberFormat(this.y, 2));
+                                // console.log(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x), Highcharts.numberFormat(this.y, 2));
                                     return '<b>'+ this.series.name +'</b><br/>'+
                                     Highcharts.dateFormat('%l:%M:%S',this.x) +'<br/>'+
                                     Highcharts.numberFormat(this.y, 2);
@@ -178,8 +176,8 @@
                                 // console.log(start,prices);
                                 // console.log("now",now,"start",game_start);
                                 timeDiff = Math.round((new Date().getTime() - game.game_start)/(1000*5));
-                                console.log(timeDiff);
-                                console.log("diff",timeDiff);
+                                // console.log(timeDiff);
+                                // console.log("diff",timeDiff);
                                 for (i = -timeDiff ; i <= 0; i++) {
                                     // console.log(prices[start]);
                                     start%=(rows-1);

@@ -43,21 +43,23 @@
             var name, id, value;
             var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
         	var set = "<?php echo $set;?>";
-        	if (set) {
-        		add(11);
-                id = 11;
-                value = 'Ambuja Cement';
-                name = 'AC';
+            var list = JSON.parse(sessionStorage.list).companies;
+            var temp = Math.round(Math.random()*20);
+           	if (set) {
+        		add(temp);
+                id = temp;
+                value = list[temp].show;
+                name = list[temp].name;
         	}else{
         		name = "<?php echo $name;?>";
         		id = document.getElementsByName(name)[0].id;
                 value = document.getElementsByName(name)[0].getAttribute( 'show' );
-                console.log(name, id, value);
+                // console.log(name, id, value);
         		add(parseInt(id));
         	}
         
         	$.ajax({
-        			url: '../data/'+"<?php echo $file; ?>",
+        			url: '../data/'+list[temp].name+'.csv',
         			success: function( data, status ) {
         	            
         				// console.log( status );

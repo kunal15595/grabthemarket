@@ -122,7 +122,34 @@ jQuery(document).ready(function(){
                 console.log( 'Error: ' + error );
             }
         });
-        return parseFloat(ret); 
+
+        return Math.round(parseFloat(ret)*100)/100; 
+        
+	}
+
+	function mid_price (comp) {
+		var ret, now = (new Date()).getTime(), game = JSON.parse(sessionStorage.game), broker = JSON.parse(sessionStorage.broker);
+		if(now < game.game_start)now = game.game_start;
+		jQuery.ajax({
+            url: '../data/'+String(comp)+'.txt',
+            async: false, 
+            success: function( data, status ) {
+                var prices = data.split(/\n|,|\s+/);
+                // console.log(prices);
+                var rows = prices.length;
+                // console.log(rows);
+                var game = JSON.parse(sessionStorage.game);
+                var time_diff_5 = Math.round((game.game_stop - now)/(1000*5*2));
+                // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
+                ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
+                // console.log("ret", ret);
+            },
+            error: function( jqXHR, status, error ) {
+                console.log( 'Error: ' + error );
+            }
+        });
+        ret*=(1.01-Math.random()/100);
+        return Math.round(parseFloat(ret)*100)/100; 
         
 	}
 	
@@ -144,7 +171,8 @@ jQuery(document).ready(function(){
                 console.log( 'Error: ' + error );
             }
         });
-        return parseFloat(ret); 
+        
+        return Math.round(parseFloat(ret)*100)/100; 
 	}
 
 	function cur_sec () {

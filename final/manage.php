@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html style="background-color: #111111;">
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -17,14 +17,15 @@
 			if (isset($_GET['inc']) && !empty($_GET['inc'])) {
 				$name = $_GET['inc'];
 			    $set = false;
-			}else{
-				$name = 'AC';
 			}
 		?>
 		<script type="text/javascript">
+			
 			var game = JSON.parse(sessionStorage.game);
 			var now = (new Date()).getTime();
-			var name = "<?php echo $name;?>";
+			
+			
+			
 			if(now < game.game_start){
 				window.location = 'pre_manage.php?inc='+name;
 			}
@@ -43,10 +44,10 @@
 			<div id="rest">
 				
 				
-				<table>
+				<table id="manage_table">
 					<tr>
 						<p  class="share_bar">
-						  <label for="num_shares">Number of shares in portfolio:</label>
+						  <label for="num_shares">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of shares in portfolio:</label>
 						  <input type="text" id="num_shares" readonly="readonly" style="border:0; color:orange; font-weight:bold;">
 						</p>
 					</tr>
@@ -58,7 +59,7 @@
 					</tr>
 					<tr>
 						<p  class="share_bar">
-						  <label for="max_buy">Max. shares you can buy:</label>
+						  <label for="max_buy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max. shares you can buy:</label>
 						  <input type="text" id="max_buy" readonly="readonly" style="border:0; color:orange; font-weight:bold;">
 						</p>
 					</tr>
@@ -83,6 +84,14 @@
 						  <input type="text" id="sell_amount" readonly="readonly" style="border:0; color:#00ff00; font-weight:bold;">
 						</p>
 					</tr>
+					<tr>
+						<p class="broker">
+						  <label for="broker_advice" id="sell_label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Broker's Advice:</label>
+						  <input type="text" id="broker_advice" readonly="readonly" style="border:0; color:orange; font-weight:bold;">
+						  <label for="broker_price" id="sell_label">Target:</label>
+						  <input type="text" id="broker_price" readonly="readonly" style="border:0; color:orange; font-weight:bold;">
+						</p>
+					</tr>
 				</table> 
 				
 				
@@ -94,6 +103,21 @@
 		</div>
 		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript">
+			var name, id;
+			var status = 'start', pre_status = 'start', set = "<?php echo $set;?>";
+			var list = JSON.parse(sessionStorage.list).companies;
+			var temp = Math.round(Math.random()*20);
+			if (set) {
+				add(temp);
+				id = list[temp].id;
+				name = list[temp].name;
+			}else{
+				name = "<?php echo $name;?>";
+				id = document.getElementsByName(name)[0].id;
+				add(parseInt(id));
+			}
+			
+
 			var shares = JSON.parse(sessionStorage.shares);
 			var current_price = cur_price(name), comp_shares = 0, net_credit;
 			
@@ -116,7 +140,7 @@
 			// console.log("comp_shares", comp_shares);
 		    jQuery.noConflict();
 		    
-			var status = 'start', pre_status = 'start', set = "<?php echo $set;?>";
+			
 			// var net_credit = "<?php echo $net_credit;?>";
 
 			if (comp_shares==0) {
@@ -134,21 +158,15 @@
 			
 			
 			
-			if (set) {
-				add(11);
-				var name = 'AC';
-			}else{
-				var name = "<?php echo $name;?>";
-				var id = document.getElementsByName(name)[0].id;
-				add(parseInt(id));
-			}
 
 			jQuery( "#num_shares" ).val( comp_shares );
 			jQuery( "#current_price" ).val(  Math.floor(current_price*100)/100);
 			
 			jQuery( "#max_buy" ).val( parseInt(Math.floor(net_credit/current_price)) );
 			jQuery( "#max_sell" ).val( parseInt(comp_shares) );
-			
+			jQuery( "#broker_price" ).val( mid_price(name) );
+			jQuery( "#broker_advice" ).val( mid_price(name)>cur_price(name)?'Buy':'Sell' );
+
 		    jQuery(function() {
 		        jQuery('#buyslider').slider({
 		        	value:0,
@@ -187,6 +205,7 @@
 	    		jQuery( "#max_buy" ).val( parseInt(Math.floor(net_credit/current_price)) );
 				jQuery( "#max_sell" ).val( parseInt(comp_shares) );
 				jQuery('#buyslider').slider("option", "max", parseInt(Math.floor(net_credit/current_price)));
+				
 				repeat();
 	    	},1500);
 		    

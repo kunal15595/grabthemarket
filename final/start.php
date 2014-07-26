@@ -24,7 +24,11 @@
     ?>
     
     <script type="text/javascript">
-        
+        var brokers_name = ['Angel Broking'];
+        var companies_name = ['Airtel', 'Cipla', 'NTPC', 'DLF', 'HDFC Bank', 'Infosys', 'ONGC', 'TCS', 'Reliance',
+            'Siemens', 'Ranbaxy', 'SAIL', 'Indiabulls', 'Vodafone', 'Hero Honda', 'Airtel', 'Airtel', 'Ambuja Cement', 'Airtel', 'Airtel',
+            'Airtel', 'Airtel', 'Larsen & Toubro', 'Airtel', 'Nestle', 'Wipro', 'Airtel', 'Tata', ];
+         
         var ns = [];
         for (var i = 0; i < (news.list).length; i++) {
             ns.push(news.list[i].txt);
@@ -32,28 +36,28 @@
         
         var list = {
             "companies": [
-                {"name": '', "show": '', "id": '0'},
-                {"name": 'ARTL', "show": 'Airtel', "id": '3'},
-                {"name": 'CIPLA', "show": 'Cipla', "id": '5'},
-                {"name": 'DLF', "show": 'DLF', "id": '7'},
-                {"name": 'INFY', "show": 'Infosys', "id": '12'},
-                {"name": 'ONGC', "show": 'ONGC', "id": '13'},
-                {"name": 'NTPC', "show": 'NTPC', "id": '14'},
-                {"name": 'HDB', "show": 'HDFC Bank', "id": '2'},
-                {"name": 'TCS', "show": 'TCS', "id": '21'},
-                {"name": 'RIL', "show": 'Reliance', "id": '16'},
-                {"name": 'SI', "show": 'Siemens', "id": '15'},
-                {"name": 'RAN', "show": 'Ranbaxy', "id": '9'},
-                {"name": 'SAIL', "show": 'SAIL', "id": '10'},
-                {"name": 'IB', "show": 'Indiabulls', "id": '4'},
-                {"name": 'VOD', "show": 'Vodafone', "id": '18'},
-                {"name": 'HMC', "show": 'Hero Honda', "id": '6'},
-                {"name": 'AC', "show": 'Ambuja Cement', "id": '11'},
-                {"name": 'NES', "show": 'Nestle', "id": '17'},
-                {"name": 'IBN', "show": 'ICICI Bank', "id": '8'},
-                {"name": 'LT', "show": 'Larsen & Toubro', "id": '1'},
-                {"name": 'WIT', "show": 'Wipro', "id": '20'},
-                {"name": 'TTM', "show": 'Tata', "id": '19'}
+                {"name": '', "show": '', "id": 0},
+                {"name": 'ARTL', "show": 'Airtel', "id": 1},
+                {"name": 'CIPLA', "show": 'Cipla', "id": 2},
+                {"name": 'DLF', "show": 'DLF', "id": 3},
+                {"name": 'INFY', "show": 'Infosys', "id": 4},
+                {"name": 'ONGC', "show": 'ONGC', "id": 5},
+                {"name": 'NTPC', "show": 'NTPC', "id": 6},
+                {"name": 'HDB', "show": 'HDFC Bank', "id": 7},
+                {"name": 'TCS', "show": 'TCS', "id": 8},
+                {"name": 'RIL', "show": 'Reliance', "id": 9},
+                {"name": 'SI', "show": 'Siemens', "id": 10},
+                {"name": 'RAN', "show": 'Ranbaxy', "id": 11},
+                {"name": 'SAIL', "show": 'SAIL', "id": 12},
+                {"name": 'IB', "show": 'Indiabulls', "id": 13},
+                {"name": 'VOD', "show": 'Vodafone', "id": 14},
+                {"name": 'HMC', "show": 'Hero Honda', "id": 15},
+                {"name": 'AC', "show": 'Ambuja Cement', "id": 16},
+                {"name": 'NES', "show": 'Nestle', "id": 17},
+                {"name": 'IBN', "show": 'ICICI Bank', "id": 18},
+                {"name": 'LT', "show": 'Larsen & Toubro', "id": 19},
+                {"name": 'WIT', "show": 'Wipro', "id": 20},
+                {"name": 'TTM', "show": 'Tata', "id": 21}
                 
             ]
         };
@@ -80,6 +84,7 @@
         sessionStorage.timeline = JSON.stringify([]);
         sessionStorage.portfolio = JSON.stringify([]);
         sessionStorage.news = JSON.stringify(ns);
+        sessionStorage.broker = JSON.stringify({"opted": false, "random": Math.random(), "type": "good"});
         sessionStorage.active_news = JSON.stringify([ns[Math.floor(Math.random()*ns.length)], ns[Math.floor(Math.random()*ns.length)]]);
         var shares = [];
         for (var i = list.companies.length - 1; i > 0; i--) {

@@ -73,9 +73,11 @@
 					names.push(document.getElementById(i+1).getAttribute('name'));
 				}
 			}
+			var list = JSON.parse(sessionStorage.list).companies;
 			if (parseInt(siz)<=0) {
-				names = ['AC', 'DLF', 'NTPC'];
-				// add(1);add(11);add(5);
+				var temp = Math.floor(Math.random()*21+1);
+				names = [list[temp%21+1].name, list[(temp+5)%21+1].name, list[(temp+10)%21+1].name];
+				add(temp%21+1);add((temp+5)%21+1);add((temp+10)%21+1);
 			}
 			// else{
 			// 	names= <?php echo json_encode($names); ?>;

@@ -1,12 +1,12 @@
 var news = {
 	"list":[
-		{"cat": "agro", "txt": "Kaveri Seed shares up; monsoon rain sparks sowing hopes"},
+		{"cat": "agro", "txt": "Agro shares up; monsoon rain sparks sowing hopes"},
 		{"cat": "agro", "txt": "Fertiliser stocks rally as gas price hike deferred "},
 		{"cat": "agro", "txt": "Nestle recalls ice cream that fails to note peanuts in labelling"},
-		{"cat": "agro", "txt": "ITC gets sanction for merger of Wimco's biz"},
-		{"cat": "agro", "txt": "Shares of Fertilizers and Chemicals Travancore rally over 6% on hopes of revival"},
+		{"cat": "agro", "txt": "Coal industries gets sanction for merger to expand biz"},
+		{"cat": "agro", "txt": "Shares of Fertilizer and Chemical companies rally on hopes of revival"},
 		{"cat": "agro", "txt": "Govt to give more interest-free loan to sugar mills"},
-		{"cat": "agro", "txt": "Coca Cola to resume operations at Varanasi plant"},
+		{"cat": "agro", "txt": "Ambuja Cement to resume operations at Varanasi plant"},
 
 		{"cat": "air", "txt": "AI puts up 5 more Dreamliners for leaseback"},
 		{"cat": "air", "txt": "SpiceJet adds new flights on three routes"},
@@ -17,10 +17,10 @@ var news = {
 		{"cat": "air", "txt": "Airline industry to invest in new IT initiatives: Survey"},
 
 		{"cat": "bank", "txt": "ICICI to open branches in Australia, SA, Mauritius: Kochhar"},
-		{"cat": "bank", "txt": "IndusInd Bank launches tractor and farm equipment division"},
+		{"cat": "bank", "txt": "HDFC Bank launches tractor and farm equipment division"},
 		{"cat": "bank", "txt": "SBI opens 6 digital branches"},
 		{"cat": "bank", "txt": "StanChart Bank, ICICI Pru Life ink bancassurance partnership"},
-		{"cat": "bank", "txt": "PNB may cut govt stake to below 58%, stock slips "},
+		{"cat": "bank", "txt": "PNB may cut govt stake to below 58%"},
 		{"cat": "bank", "txt": "ICICI Bank launches co-branded card with Delhi Metro"},
 		{"cat": "bank", "txt": "HDFC Ergo signs outsourcing pact with Accenture"},
 		{"cat": "bank", "txt": "American brands hog domestic retail space with 30% share"},
@@ -44,19 +44,19 @@ var news = {
 
 		{"cat": "gas", "txt": "Hopes of kerosene, LPG price hike fuel gains in oil, gas stocks "},
 		{"cat": "gas", "txt": "NEEPCO blames ONGC for non-supply of gas to Monarchak plant"},
-		{"cat": "gas", "txt": "Investors switching to Cairn India from GAIL"},
+		{"cat": "gas", "txt": "Investors switching to ONGC from GAIL"},
 		{"cat": "gas", "txt": "Unconventional energy boom drives oil and gas patents"},
 		{"cat": "gas", "txt": "GAIL slips nearly 2% after explosion at pipeline "},
 		{"cat": "gas", "txt": "Pradhan for setting up statutory safety body for oil & gas ind"},
 		{"cat": "gas", "txt": "U.S. imposes record fine on BNP in sanctions warning"},
 		{"cat": "gas", "txt": "ONGC to invest Rs 5700 crore in Bombay high; stock gains "},
-		{"cat": "gas", "txt": "15 killed, 30 injured in GAIL India pipeline blast in Andhra"},
+		{"cat": "gas", "txt": "15 killed, 30 injured in ONGC pipeline blast in Andhra"},
 
 		{"cat": "infra", "txt": "Ashok Leyland, L&T, Nexter consortium for artillery programme"},
 		{"cat": "infra", "txt": "L&T Technology buys 74% stake in Thales Software India"},
 		{"cat": "infra", "txt": "L&T Construction sets up facility in TN"},
 		{"cat": "infra", "txt": "Time to rationalise coal linkages: Piyush Goyal"},
-		{"cat": "infra", "txt": "IVRCL rallies 5% as CDR approves Rs 7,000-crore debt recast proposal "},
+		{"cat": "infra", "txt": "CDR approves Rs 7,000-crore debt recast proposal "},
 		{"cat": "infra", "txt": "Rest of World revenue to grow over 22% this fiscal: Tech Mahindra"},
 		{"cat": "infra", "txt": "L&T bags Rs 2,442 cr order from BSNL"},
 
@@ -99,7 +99,8 @@ var news = {
 		{"cat": "power", "txt": "Power Minister to meet bankers today, to discuss bottlenecks"},
 		
 		{"cat": "pharmacy", "txt": "Sun Pharma recalls 200 vials of cancer drug: FDA"},
-		{"cat": "pharmacy", "txt": "Cipla inks pact to acquire 51% stake in Yemeni firmRanbaxy shares jump on approval of generic drug Diovan "},
+		{"cat": "pharmacy", "txt": "Cipla inks pact to acquire 51% stake in Yemeni firm"},
+		{"cat": "pharmacy", "txt": "Ranbaxy approves generic drug Diovan "},
 		{"cat": "pharmacy", "txt": "New drugs, profit focus to boost Strides Arcolab "},
 		{"cat": "pharmacy", "txt": "Sun-Ranbaxy deal pushes domestic H1, M&As jump 22%"},
 		{"cat": "pharmacy", "txt": "Dr Reddy's Lab launches duloxetine delayed-release capsules"},
@@ -113,7 +114,7 @@ var news = {
 		{"cat": "retail", "txt": "Zomato to invest $1 mn to expand presence in Scotland"},
 		
 		{"cat": "rail", "txt": "GVK signs deal for 75% land acquisition for Oz rail project"},
-		{"cat": "rail", "txt": "Railway stocks on a roll ahead of rail budget; gain up to 8 per cent"},
+		{"cat": "rail", "txt": "Railway stocks on a roll after rail reforms"},
 
 		{"cat": "services", "txt": "Maxlife Insurance launches new customer centric initiative"},
 		{"cat": "services", "txt": "Zomato acquires New Zealand-based Menumania"},
@@ -140,17 +141,17 @@ var news = {
 		{"cat": "telecom", "txt": "BlackBerry to complete sale of Canadian real estate by August"},
 		{"cat": "telecom", "txt": "Reliance to launch 4G telecoms services in 2015 "},
 		
-		{"cat": "misc", "txt": "Alstom T&D bags Rs 27.7 cr order to supply GIS"},
-		{"cat": "misc", "txt": "Diageo buys fresh 26% in USL for Rs 11,449 cr"},
-		{"cat": "misc", "txt": "ICVL likely to submit $200 mn bid for Rio Tinto Mozambique"},
-		{"cat": "misc", "txt": "Punj Lloyd bags Rs 1,418 crore order in Kuwait"},
-		{"cat": "misc", "txt": "RCom to raise Rs 4,300 crore from investors, promoters"},
-		{"cat": "misc", "txt": "France agrees to buy 20% stake in Alstom"},
+		{"cat": "misc", "txt": "Vodafone bags Rs 27.7 cr order to supply GIS"},
+		{"cat": "misc", "txt": "Indiabulls buys fresh 26% in USL for Rs 11,449 cr"},
+		{"cat": "misc", "txt": "DLF likely to submit $200 mn bid for Rio Tinto Mozambique"},
+		{"cat": "misc", "txt": "Ranbaxy bags Rs 1,418 crore order in Kuwait"},
+		{"cat": "misc", "txt": "Reliance to raise Rs 4,300 crore from investors, promoters"},
+		{"cat": "misc", "txt": "France agrees to buy 20% stake in Cipla"},
 		{"cat": "misc", "txt": "Flipkart to hire 12,000 people this year"},
-		{"cat": "misc", "txt": "Cairn India pays outgoing CEO bonus of Rs 2.51 cr"},
-		{"cat": "misc", "txt": "Satyam fraud case verdict date may be fixed Monday"},
+		{"cat": "misc", "txt": "Airtel pays outgoing CEO bonus of Rs 2.51 cr"},
+		{"cat": "misc", "txt": "Reliance fraud case verdict date may be fixed Monday"},
 		{"cat": "misc", "txt": "Reliance Growth Fund touches a net asset value of Rs 600"},
-		{"cat": "misc", "txt": "UCO Bank seeks Rs 1,000 crore capital infusion from govt"}
+		{"cat": "misc", "txt": "ICICI Bank seeks Rs 1,000 crore capital infusion"}
 	]
 };
 		

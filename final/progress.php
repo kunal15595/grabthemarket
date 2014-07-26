@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>CSS3 Loading Animation</title>
 <link rel="stylesheet" type="text/css" href="css/progress.css">
 <script src="../js/jq.js" type="text/javascript"></script>
 <script>		
