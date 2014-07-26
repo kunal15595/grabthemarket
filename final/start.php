@@ -24,11 +24,13 @@
     ?>
     
     <script type="text/javascript">
-        var brokers_name = ['Angel Broking'];
-        var companies_name = ['Airtel', 'Cipla', 'NTPC', 'DLF', 'HDFC Bank', 'Infosys', 'ONGC', 'TCS', 'Reliance',
-            'Siemens', 'Ranbaxy', 'SAIL', 'Indiabulls', 'Vodafone', 'Hero Honda', 'Airtel', 'Airtel', 'Ambuja Cement', 'Airtel', 'Airtel',
-            'Airtel', 'Airtel', 'Larsen & Toubro', 'Airtel', 'Nestle', 'Wipro', 'Airtel', 'Tata', ];
-         
+        var brokers_name = ['Angel Broking', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia',
+            'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia'];
+        var companies_name = ['BHEL', 'Airtel', 'Cipla', 'NTPC', 'DLF', 'HDFC Bank', 'Infosys', 'ONGC', 'TCS', 'Reliance', 'Sun Pharma',
+            'Siemens', 'Ranbaxy', 'SAIL', 'Indiabulls', 'Vodafone', 'Hero Honda', 'Ambuja Cement', 'TVS Motors', 'Ashok Leyland', 'Omaxe', 'JK Tyres',
+            'L & T', 'Nestle', 'Wipro', 'Tata Power', 'GAIL', 'Cairn', 'Air India', 'Flipkart', 'Nivea', 'Prestige', 'Snapdeal', 'Zomato'];
+        brokers_name = shuffle(brokers_name);
+        companies_name = shuffle(companies_name);
         var ns = [];
         for (var i = 0; i < (news.list).length; i++) {
             ns.push(news.list[i].txt);
@@ -37,27 +39,27 @@
         var list = {
             "companies": [
                 {"name": '', "show": '', "id": 0},
-                {"name": 'ARTL', "show": 'Airtel', "id": 1},
-                {"name": 'CIPLA', "show": 'Cipla', "id": 2},
-                {"name": 'DLF', "show": 'DLF', "id": 3},
-                {"name": 'INFY', "show": 'Infosys', "id": 4},
-                {"name": 'ONGC', "show": 'ONGC', "id": 5},
-                {"name": 'NTPC', "show": 'NTPC', "id": 6},
-                {"name": 'HDB', "show": 'HDFC Bank', "id": 7},
-                {"name": 'TCS', "show": 'TCS', "id": 8},
-                {"name": 'RIL', "show": 'Reliance', "id": 9},
-                {"name": 'SI', "show": 'Siemens', "id": 10},
-                {"name": 'RAN', "show": 'Ranbaxy', "id": 11},
-                {"name": 'SAIL', "show": 'SAIL', "id": 12},
-                {"name": 'IB', "show": 'Indiabulls', "id": 13},
-                {"name": 'VOD', "show": 'Vodafone', "id": 14},
-                {"name": 'HMC', "show": 'Hero Honda', "id": 15},
-                {"name": 'AC', "show": 'Ambuja Cement', "id": 16},
-                {"name": 'NES', "show": 'Nestle', "id": 17},
-                {"name": 'IBN', "show": 'ICICI Bank', "id": 18},
-                {"name": 'LT', "show": 'Larsen & Toubro', "id": 19},
-                {"name": 'WIT', "show": 'Wipro', "id": 20},
-                {"name": 'TTM', "show": 'Tata', "id": 21}
+                {"name": 'ARTL', "show": companies_name[1], "id": 1},
+                {"name": 'CIPLA', "show": companies_name[2], "id": 2},
+                {"name": 'DLF', "show": companies_name[3], "id": 3},
+                {"name": 'INFY', "show": companies_name[4], "id": 4},
+                {"name": 'ONGC', "show": companies_name[5], "id": 5},
+                {"name": 'NTPC', "show": companies_name[6], "id": 6},
+                {"name": 'HDB', "show": companies_name[7], "id": 7},
+                {"name": 'TCS', "show": companies_name[8], "id": 8},
+                {"name": 'RIL', "show": companies_name[9], "id": 9},
+                {"name": 'SI', "show": companies_name[10], "id": 10},
+                {"name": 'RAN', "show": companies_name[11], "id": 11},
+                {"name": 'SAIL', "show": companies_name[12], "id": 12},
+                {"name": 'IB', "show": companies_name[13], "id": 13},
+                {"name": 'VOD', "show": companies_name[14], "id": 14},
+                {"name": 'HMC', "show": companies_name[15], "id": 15},
+                {"name": 'AC', "show": companies_name[16], "id": 16},
+                {"name": 'NES', "show": companies_name[17], "id": 17},
+                {"name": 'IBN', "show": companies_name[18], "id": 18},
+                {"name": 'LT', "show": companies_name[19], "id": 19},
+                {"name": 'WIT', "show": companies_name[20], "id": 20},
+                {"name": 'TTM', "show": companies_name[21], "id": 21}
                 
             ]
         };

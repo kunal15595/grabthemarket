@@ -74,8 +74,8 @@ var news = {
 		{"cat": "metal", "txt": "ONGC to invest Rs 5,700 crore in Mumbai High North development"},
 		{"cat": "metal", "txt": "India likely to sell 5% stake in SAIL: Sources"},
 
-		{"cat": "motor", "txt": "TVS Motor Company rallies over 4%, hits 52-week high on June sales "},
-		{"cat": "motor", "txt": "Ceat shares up over 4% after workers call off strike "},
+		{"cat": "motor", "txt": "TVS Motor Company high on June sales "},
+		{"cat": "motor", "txt": "Ceat workers call off strike "},
 		{"cat": "motor", "txt": "Apollo Tyres to invest $340 mn to upgrade facilities"},
 		{"cat": "motor", "txt": "Benz monitoring currency fluctuations, plans launches in India"},
 		{"cat": "motor", "txt": "Carzonrent launches luxe self-drive cars with Merc models"},
