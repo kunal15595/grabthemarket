@@ -104,7 +104,7 @@
 			// cell1.setAttribute("class", company[i]);
 			cell1.className = "expand";
 			cell2.className = "contract "+i.toString();
-			cell3.className = "contract "+i.toString();
+			cell3.className = "contract pre_hide "+i.toString();
 			// cell2.setAttribute("class", i);
 			cell3.setAttribute("id", 'cell'+i.toString());
 			cell2.setAttribute("id", 'num'+i.toString());
@@ -133,7 +133,9 @@
 			
 		}	
 	}
-	
+	if (now < game_start){
+		jQuery('.pre_hide').hide();
+	}
 	setInterval(function() {
 		repeat();
 		for (var i = 0; i < ids.length; i++) {

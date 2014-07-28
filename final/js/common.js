@@ -148,7 +148,7 @@ jQuery(document).ready(function(){
                 console.log( 'Error: ' + error );
             }
         });
-        ret*=(1.01-Math.random()/100);
+        ret*=(1.04-2*4*Math.random()/100);
         return Math.round(parseFloat(ret)*100)/100; 
         
 	}

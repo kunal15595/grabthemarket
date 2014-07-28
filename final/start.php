@@ -24,11 +24,15 @@
     ?>
     
     <script type="text/javascript">
-        var brokers_name = ['Angel Broking', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia',
-            'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia', 'Investopedia'];
-        var companies_name = ['BHEL', 'Airtel', 'Cipla', 'NTPC', 'DLF', 'HDFC Bank', 'Infosys', 'ONGC', 'TCS', 'Reliance', 'Sun Pharma',
-            'Siemens', 'Ranbaxy', 'SAIL', 'Indiabulls', 'Vodafone', 'Hero Honda', 'Ambuja Cement', 'TVS Motors', 'Ashok Leyland', 'Omaxe', 'JK Tyres',
-            'L & T', 'Nestle', 'Wipro', 'Tata Power', 'GAIL', 'Cairn', 'Air India', 'Flipkart', 'Nivea', 'Prestige', 'Snapdeal', 'Zomato'];
+        var brokers_name = ['Angel Broking', 'Investopedia', 'Motilal Oswal', 'Indus Invest', 'InvestMentor Securites',
+            'Aracade Stock brokers', 'Karvy group', 'Investsmart', 'Dalmia Securities', 'SMC Group', 'Share Khan',
+            'Advani Share Brokers', 'Toss financial services', 'India Infoline', 'Kotak Securities Ltd.'];
+        var companies_name = ['BHEL', 'Airtel', 'Cipla', 'NTPC', 'DLF', 'HDFC Bank', 'Infosys', 'ONGC', 'TCS', 'Reliance',
+            'Sun Pharma', 'PNB', 'HPCL', 'HCL Tech.', 'Indian Oil', 'Yes Bank', 'Siemens', 'Ranbaxy', 'SAIL', 'Indiabulls',
+            'Vodafone', 'Hero Honda', 'Apollo', 'TVS Motors', 'Ashok Leyland', 'Axis Bank', 'SBI','Omaxe', 'JK Tyres',
+            'Dabur', 'Canara Bank', 'Eicher Motors', 'L & T', 'Nestle', 'Wipro', 'Tata Power', 'GAIL', 'Cairn', 'Air India',
+            'Flipkart', 'Nivea', 'Prestige', 'Snapdeal', 'Zomato', 'Asian Paints', 'Bajaj Auto', 'Idea', 'Dr. Reddy\'s'];
+        
         brokers_name = shuffle(brokers_name);
         companies_name = shuffle(companies_name);
         var ns = [];
@@ -86,11 +90,12 @@
         sessionStorage.timeline = JSON.stringify([]);
         sessionStorage.portfolio = JSON.stringify([]);
         sessionStorage.news = JSON.stringify(ns);
-        sessionStorage.broker = JSON.stringify({"opted": false, "random": Math.random(), "type": "good"});
+        sessionStorage.broker = JSON.stringify({"opted": false, "random": Math.random(), "type": "good", });
         sessionStorage.active_news = JSON.stringify([ns[Math.floor(Math.random()*ns.length)], ns[Math.floor(Math.random()*ns.length)]]);
         var shares = [];
         for (var i = list.companies.length - 1; i > 0; i--) {
-            shares.push({"company": list.companies[i].name, "price": parseFloat(past_price(list.companies[i].name)), "quantity": Math.round((Math.random() * 1000)/past_price(list.companies[i].name)), "tag": 'buy', "id": list.companies[i].id});
+            shares.push({"company": list.companies[i].name, "price": parseFloat(past_price(list.companies[i].name)),
+                "quantity": Math.round((Math.random() * 1000)/past_price(list.companies[i].name)), "tag": 'buy', "id": list.companies[i].id});
         }
         sessionStorage.shares = JSON.stringify(shares);
         // console.log(shares);
