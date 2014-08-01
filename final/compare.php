@@ -12,6 +12,7 @@
 			if (!isset($_SESSION)) {
 			    session_start();
 			}
+
 			// $game_start = $_SESSION['game_start'];
 			// $id = (float)$_SESSION['game_start'];
 			$id = number_format($_SESSION['game_start'], 0, '', '');
@@ -37,13 +38,13 @@
 		<script type="text/javascript" src="theme/compare.js"></script>
 		<div class="container">
 		    <div class="content">
-		    <div class="circle"></div>
-		    <div class="circle1"></div>
+			    <div class="circle"></div>
+			    <div class="circle1"></div>
 		    </div>
 		</div>
 		<div id="container"></div>
 		<div id="right">
-		    <?php include 'list.php'; ?>
+		    <?php include 'list.php';?>
 		</div>
 		
 		<script type="text/javascript" src="js/common.js"></script>
@@ -74,13 +75,12 @@
 				}
 			}
 			var list = JSON.parse(sessionStorage.list).companies;
-			if (parseInt(siz)<=0) {
+			if (parseInt(siz) <= 0) {
 				var temp = Math.floor(Math.random()*21+1);
 				names = [list[temp%21+1].name, list[(temp+5)%21+1].name, list[(temp+10)%21+1].name];
 				add(temp%21+1);add((temp+5)%21+1);add((temp+10)%21+1);
 			}
 			// else{
-			// 	names= <?php echo json_encode($names); ?>;
 			// 	// console.log("2");
 			// }
 			// 	console.log("names",names);

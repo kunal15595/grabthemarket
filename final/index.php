@@ -53,12 +53,18 @@
             
             <!-- // <script type="text/javascript" src="js/evaluate.js"></script> -->
             <script type="text/javascript">
+                var stat = JSON.parse(sessionStorage.stat);
+                var broker = JSON.parse(sessionStorage.broker);
+                
+                if(stat.status != 'visit' || broker.opted == 'true'){
+                    jQuery('.hide_broke').hide();
+                }
                 var page = "<?php echo $inc;?>";
                 add_page(page);
             </script>
             <div  width="100%" height="100%" id="main">
                 <iframe scrolling="no" style="visibility:hidden;" onload="this.style.visibility = 'visible';" width="100%" height="100%" frameborder="0" id="mainframe" src="<?php echo $incphp; ?>"></iframe>
-                <?php //include "$incphp"; ?>
+                
             </div>  
         </div>     
         

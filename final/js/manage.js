@@ -142,5 +142,10 @@ jQuery(document).ready(function() {
 		
 		window.location = 'manage.php?inc='+name;
 	});
+
+	var broker = JSON.parse(sessionStorage.broker);
+	if(!broker.opted){
+		jQuery('.broker').hide();
+	}
 	
 });

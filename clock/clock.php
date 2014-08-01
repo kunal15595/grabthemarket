@@ -60,11 +60,19 @@
 		},4000);
 
 	    // console.log("starting clock");
+	    var low = "minute";
+	    var high = "hour";
+	    
+	    if(tim < 30*60){
+	    	low = "second";
+	    	high = "minute";
+	    }
 		var clock = new Countdown({
 			time: Math.round(tim), 
 			width:120, 
 			height:60, 
-			rangeHi:"minute"	// <- no comma on last item!
+			rangeHi		: high,		// The highest unit of time to display
+			rangeLo		: low,		// The lowest unit of time to display
 		});
 
 	// console.log("started clock");

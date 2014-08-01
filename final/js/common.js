@@ -148,7 +148,10 @@ jQuery(document).ready(function(){
                 console.log( 'Error: ' + error );
             }
         });
-        ret*=(1.04-2*4*Math.random()/100);
+        var broker = JSON.parse(sessionStorage.broker);
+		var delta = broker.id;
+
+        ret*=(1+(5-delta)/100-2*(5-delta)*Math.random()/100);
         return Math.round(parseFloat(ret)*100)/100; 
         
 	}
