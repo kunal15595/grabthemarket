@@ -113,7 +113,7 @@ jQuery(document).ready(function(){
                 var rows = prices.length;
                 // console.log(rows);
                 var game = JSON.parse(sessionStorage.game);
-                var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*5));
+                var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*20));
                 // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
                 ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
                 // console.log("ret", ret);
@@ -139,7 +139,7 @@ jQuery(document).ready(function(){
                 var rows = prices.length;
                 // console.log(rows);
                 var game = JSON.parse(sessionStorage.game);
-                var time_diff_5 = Math.round((game.game_stop - now)/(1000*5*2));
+                var time_diff_5 = Math.round((game.game_stop - now)/(1000*20*2));
                 // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
                 ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
                 // console.log("ret", ret);
@@ -165,6 +165,28 @@ jQuery(document).ready(function(){
                 // console.log(rows);
                 var game = JSON.parse(sessionStorage.game);
                 ret = prices[(game.game_start)%(prices.length-1)];
+                
+            },
+            error: function( jqXHR, status, error ) {
+                console.log( 'Error: ' + error );
+            }
+        });
+        
+        return Math.round(parseFloat(ret)*100)/100; 
+	}
+
+	function end_price (comp) {
+		var ret;
+		jQuery.ajax({
+            url: '../data/'+String(comp)+'.txt',
+            async: false, 
+            success: function( data, status ) {
+                var prices = data.split(/\n|,|\s+/);
+                // console.log(prices);
+                var rows = prices.length;
+                // console.log(rows);
+                var game = JSON.parse(sessionStorage.game);
+                ret = prices[(game.game_stop)%(prices.length-1)];
                 
             },
             error: function( jqXHR, status, error ) {

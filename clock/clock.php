@@ -26,9 +26,9 @@
 			now = (new Date()).getTime();
 		
 		if (now < game_start) {
-			tim = (5*60*1000 - (now-game_visit))/1000;
+			tim = (15*60*1000 - (now-game_visit))/1000;
 		}else{
-			tim = (20*60*1000 - (now-game_start))/1000;
+			tim = (2.5*60*60*1000 - (now-game_start))/1000;
 		}
 
 		

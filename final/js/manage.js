@@ -10,7 +10,7 @@ function cur_price (comp) {
             var rows = prices.length;
             // console.log(rows);
             var game = JSON.parse(sessionStorage.game);
-            var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*5));
+            var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*20));
             // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
             ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
             // console.log("ret", ret);

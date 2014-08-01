@@ -41,7 +41,7 @@ $(document).ready(function() {
                         series.addPoint([x, y], true, false);
                         repeat();
                         
-                    }, 3000);
+                    }, 20*1000);
                 }
             }
         },
@@ -110,7 +110,7 @@ $(document).ready(function() {
                     // start%=rows;
                     // console.log(time + i * 1000,":",Math.round(parseFloat(status_retrieve[i-2+timeDiff])*100)/100);
                     data.push({
-                        x: time + i*3*1000,
+                        x: time + i*20*1000,
                         y: Math.round(parseFloat(timeline[i-2+timeDiff].profit)*100)/100
                         // y: Math.random()
                     });

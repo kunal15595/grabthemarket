@@ -109,7 +109,7 @@
                                         start++;
                                         
                                         
-                                    }, 5000);
+                                    }, 20*1000);
                                 }
                             }
                         },
@@ -175,14 +175,14 @@
                                 var data = [], time = (new Date()).getTime(), i;
                                 // console.log(start,prices);
                                 // console.log("now",now,"start",game_start);
-                                timeDiff = Math.round((new Date().getTime() - game.game_start)/(1000*5));
+                                timeDiff = Math.round((new Date().getTime() - game.game_start)/(1000*20));
                                 // console.log(timeDiff);
                                 // console.log("diff",timeDiff);
                                 for (i = -timeDiff ; i <= 0; i++) {
                                     // console.log(prices[start]);
                                     start%=(rows-1);
                                     data.push({
-                                        x: time + i*5*1000,
+                                        x: time + i*20*1000,
                                         y: Math.round(prices[start]*100)/100
                                         // y: Math.random()
                                     });

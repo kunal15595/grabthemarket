@@ -83,7 +83,7 @@ jQuery(document).ready(function() {
 		var now = new Date().getTime(), game = JSON.parse(sessionStorage.game);
 		var bonus_submit = JSON.parse(sessionStorage.bonus_submitted);
 		// console.log(now - game_start, (bonus_submit.count + 1)*2*60*10000);
-		if (now - game.game_start > (bonus_submit.count + 1)*2*60*1000) {
+		if (now - game.game_start > (bonus_submit.count + 1)*10*60*1000) {
 
 			if(bonus_submit.submitted){
 

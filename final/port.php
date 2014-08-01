@@ -123,8 +123,8 @@ $(function () {
                                 start++;
                                 pass_time++;
                                 start%=rows;
-                                now += 1000*10000;
-                            }, 1000);
+                                now += 20*1000*10000;
+                            }, 20*1000);
                         }
                     }
                 },
@@ -185,14 +185,14 @@ $(function () {
                         var data = [], time = now, i, newTime = (new Date()).getTime();
                         
                         // console.log("now",newTime,"start",game_start);
-                        var timeDiff = Math.round((newTime - game_start/10000)/1000);
+                        var timeDiff = Math.round((newTime - game_start/10000)/(20*1000));
                         // console.log("diff",timeDiff);
                         for (i = -timeDiff ; i <= 0; i++) {
                             // console.log(prices[start]);
                             pass_time++;
                             start%=rows;
                             data.push({
-                                x: time + i * 1000*10000,
+                                x: time + i * 20*1000*10000,
                                 y: time_quantity(pass_time)===0?0:Math.round(((prices[start])*time_quantity(pass_time)-invested)*100)/100
                             });
                             start++;

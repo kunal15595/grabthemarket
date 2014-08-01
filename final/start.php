@@ -83,7 +83,7 @@
         sessionStorage.compare = JSON.stringify(compare);
         sessionStorage.bonus = JSON.stringify([]);
         sessionStorage.bonus_submitted = JSON.stringify({"submitted": false, "count": 0});
-        sessionStorage.game = JSON.stringify({"game_visit": now, "game_start": now + 5*60*1000,"game_stop": now + 25*60*1000});
+        sessionStorage.game = JSON.stringify({"game_visit": now, "game_start": now + 15*60*1000,"game_stop": now + 2.5*60*60*1000});
         sessionStorage.money = JSON.stringify({"credit": 5000, "profit": 0});
         sessionStorage.growl = JSON.stringify({"pending": true,"message": 'Hello !&nbsp;&nbsp;&nbsp;&nbsp;Market opens in 5 min.' });
         sessionStorage.stat = JSON.stringify({"status": 'visit'});

@@ -223,10 +223,10 @@
 			                    console.log(portfolio[portfolio.length-1].port[num-1]);
 			                    var x = now, y = portfolio[portfolio.length-1].port[num-1];
 			                    series.addPoint([x, y], true, false);
-			                    now += 3000;
+			                    now += 20*1000;
 			            	}
 			            	clearInterval(refreshIntervalId);
-			                refreshIntervalId = setInterval(repeat_port, 3000);
+			                refreshIntervalId = setInterval(repeat_port, 20*1000);
 			            }
 			        }
 			    },
@@ -293,7 +293,7 @@
 			                // console.log(prices[start]);
 			                
 			                data.push({
-			                    x: time + i *3*1000,
+			                    x: time + i*20*1000,
 			                    y: portfolio[i+portfolio.length-1].port[num-1]
 			                });
 			                

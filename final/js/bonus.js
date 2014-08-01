@@ -23,18 +23,18 @@ jQuery(document).ready(function() {
         var bon = JSON.parse(sessionStorage.bonus);
         console.log("bon", bon);
         for (var i = 0; i < 10; i++) {
-            data.push({x:2*(i+1), y:parseFloat(bon[i].expected)});
+            data.push({x:10*(i+1), y:parseFloat(bon[i].expected)});
         }
         var count = sub.count;
         for (var i = 1; i < count+1; i++) {
-            data2.push({x:2*i, y:parseFloat(bon[i-1].reality)});
-            data3.push({x:2*i, y:parseFloat(bon[i-1].awarded)});    
+            data2.push({x:10*i, y:parseFloat(bon[i-1].reality)});
+            data3.push({x:10*i, y:parseFloat(bon[i-1].awarded)});    
         }
     } else{
         data = [
-            {x:2*1, y:129.9}, {x:2*2, y:71.5}, {x:2*3, y:106.4},{x:2*4, y:-12.2},
-            {x:2*5, y:34.0}, {x:2*6, y:-32.0}, {x:2*7, y:135.6}, {x:2*8, y:148.5},
-            {x:2*9, y:216.4}, {x:2*10, y:194.1}
+            {x:10*1, y:129.9}, {x:10*2, y:71.5}, {x:10*3, y:106.4},{x:10*4, y:-12.2},
+            {x:10*5, y:34.0}, {x:10*6, y:-32.0}, {x:10*7, y:135.6}, {x:10*8, y:148.5},
+            {x:10*9, y:216.4}, {x:10*10, y:194.1}
         ];
     }    
     
