@@ -149,9 +149,10 @@ jQuery(document).ready(function(){
             }
         });
         var broker = JSON.parse(sessionStorage.broker);
-		var delta = broker.id;
+		var delta = parseInt(broker.tag);
 
-        ret*=(1+(5-delta)/100-2*(5-delta)*Math.random()/100);
+        ret*= 1+(5-delta)/100-2*(5-delta)*broker.random/100;
+        // console.log(ret, delta, broker);
         return Math.round(parseFloat(ret)*100)/100; 
         
 	}

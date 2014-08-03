@@ -11,10 +11,10 @@
     <?php 
         session_start();
         $_SESSION['game_visit'] = microtime(true)*1000*10000;
-        $_SESSION['game_start'] = $_SESSION['game_visit'] + 5*60*1000*10000;
-        $_SESSION['game_stop'] = $_SESSION['game_visit'] + 25*60*1000*10000;
+        $_SESSION['game_start'] = $_SESSION['game_visit'] + 15*60*1000*10000;
+        $_SESSION['game_stop'] = $_SESSION['game_visit'] + 2.5*60*60*1000*10000;
         
-        $_SESSION['net_credit'] = 5000;
+        $_SESSION['net_credit'] = 10*1000;
         $_SESSION['net_profit'] = 0;
         $_SESSION['status'] = 'visit';
         $_SESSION['bonus_count'] = 0;
@@ -92,17 +92,17 @@
         sessionStorage.bonus_submitted = JSON.stringify({"submitted": false, "count": 0});
         sessionStorage.game = JSON.stringify({"game_visit": now, "game_start": now + 15*60*1000,"game_stop": now + 2.5*60*60*1000});
         sessionStorage.money = JSON.stringify({"credit": 5000, "profit": 0});
-        sessionStorage.growl = JSON.stringify({"pending": true,"message": 'Hello !&nbsp;&nbsp;&nbsp;&nbsp;Market opens in 5 min.' });
+        sessionStorage.growl = JSON.stringify({"pending": true,"message": 'Hello !&nbsp;&nbsp;&nbsp;&nbsp;Market opens in 15 min.' });
         sessionStorage.stat = JSON.stringify({"status": 'visit'});
         sessionStorage.timeline = JSON.stringify([]);
         sessionStorage.portfolio = JSON.stringify([]);
         sessionStorage.news = JSON.stringify(ns);
-        sessionStorage.broker = JSON.stringify({"name": "xyz", "volume": 0, "opted": false, "random": Math.random(), "cat": "good","id": 0, "names": brokers_name, "types": brokers_types, "repute": brokers_repute});
+        sessionStorage.broker = JSON.stringify({"name": "xyz", "volume": 0, "opted": false, "random": Math.random(), "cat": "good", "tag": 0, "names": brokers_name, "types": brokers_types, "repute": brokers_repute});
         sessionStorage.active_news = JSON.stringify([ns[Math.floor(Math.random()*ns.length)], ns[Math.floor(Math.random()*ns.length)]]);
         var shares = [];
         for (var i = list.companies.length - 1; i > 0; i--) {
             shares.push({"company": list.companies[i].name, "price": parseFloat(past_price(list.companies[i].name)),
-                "quantity": Math.round(((new Date()).getDate()/30*i*60)/past_price(list.companies[i].name)), "tag": 'buy', "id": list.companies[i].id});
+                "quantity": Math.round(((new Date()).getDate()/30*i*600)/past_price(list.companies[i].name)), "tag": 'buy', "id": list.companies[i].id});
         }
         sessionStorage.shares = JSON.stringify(shares);
         // console.log(shares);

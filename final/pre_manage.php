@@ -15,6 +15,7 @@
 	            session_start();
 	        }
 			$set = true;
+			$name = "";
 			if (isset($_GET['inc']) && !empty($_GET['inc'])) {
 				$name = $_GET['inc'];
 			    $set = false;
@@ -104,6 +105,7 @@
 			var set = "<?php echo $set;?>", pre_status = stat.status;
 			var list = JSON.parse(sessionStorage.list).companies;
 			var temp = Math.round(Math.random()*20);
+			console.log(set);
 			if (set) {
 				add(temp);
 				id = list[temp].id;
@@ -132,7 +134,6 @@
 		    jQuery.noConflict();
 
 			
-			// var net_credit = "<?php echo $net_credit;?>";
 			
 			if (comp_shares==0) {
 				jQuery																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												('#sell').hide();

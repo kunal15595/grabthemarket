@@ -26,10 +26,9 @@
 		<div id="wrap">
 			<div id="tabs">
 				<div class="trends" id="historical">Historical</div>
-				<div class="trends" id="current">Current</div>
+				<div class="trends hide_cur" id="current">Current</div>
 				<div class="trends" id="compare">Compare</div>
 			</div>
-	<!-- // <script type="text/javascript" src= "../js/jq.js"></script> -->
 	<script type="text/javascript" src= "js/common.js"></script>
 	
 	<script type="text/javascript" src="js/companies.js"></script>
@@ -37,6 +36,11 @@
 		var tenure = "<?php echo $tenure;?>";
 		tenure = tenure.split('.');
 		add_tenure(String(tenure[0]));
+
+		var stat = JSON.parse(sessionStorage.stat);
+		if(stat.status == 'visit'){
+            jQuery('.hide_cur').hide();
+        }
 	</script>
 			<div style="visibility:hidden;" onload="this.style.visibility = 'visible';" id="show">
 				<iframe style="visibility:hidden;" onload="this.style.visibility = 'visible';" id="showframe" src="<?php echo $tenure; ?>" marginwidth="0" marginheight="0"></iframe>

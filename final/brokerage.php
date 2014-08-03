@@ -60,7 +60,8 @@
             var name_cell = names.insertCell(-1);
             name_cell.innerHTML = broker.names[i].toString();
             broker_temp_names.push(broker.names[i].toString());
-
+            name_cell.className = 'broker_name';
+            
             var cost_cell = cost.insertCell(-1);
             cost_cell.innerHTML = broker.repute[i]*(1000-100*(i+1)).toString();
             broker_temp_cost.push(broker.repute[i]*(1000-100*(i+1)).toString());
@@ -73,25 +74,28 @@
             cat_cell.innerHTML = broker.types[i].toString();   
             broker_temp_cat.push(broker.types[i].toString());
 
-            broker_temp_repute = broker.repute[i];
+            broker_temp_repute.push(broker.repute[i]);
 
             var signup_cell = signup.insertCell(-1);
             var bt = document.createElement('button');
             bt.innerHTML = 'Sign Up';
-            bt.className = "break "+i.toString();
+            bt.className = "break sign_up "+i.toString();
             var button = signup_cell.appendChild(bt);
             // signup_cell.innerHTML = broker.types[i].toString();            
         }
 
         jQuery('.break').click(function() {
             jQuery('.break').prop('disabled', true);
+            var broker = JSON.parse(sessionStorage.broker);
             broker.opted = 'true';
-            var num = parseInt(jQuery(this).attr("class").split(" ")[1]);
+            var num = parseInt(jQuery(this).attr("class").split(" ")[2]);
             // console.log(num);
             broker.cat = broker_temp_cat[num];
             broker.name = broker_temp_names[num];
             broker.volume = broker_temp_volume[num];
-            broker.id = broker_temp_repute[num];
+            broker.tag = broker_temp_repute[num];
+            broker.random = (5-broker.tag)/10;
+            if(Math.random() < 0.5)broker.random = 0 - broker.random;
             sessionStorage.broker = JSON.stringify(broker);
             window.parent.location = 'index.php';
         });

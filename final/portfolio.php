@@ -19,7 +19,6 @@
 			$file = $name.'.txt';
 			$set = false;
 		}
-		$inc = 'port.php?inc='.$name;
 	?>
 
 	</head>

@@ -46,7 +46,7 @@ var news = {
 		{"cat": "gas", "txt": "NEEPCO blames ONGC for non-supply of gas to Monarchak plant"},
 		{"cat": "gas", "txt": "Investors switching to ONGC from GAIL"},
 		{"cat": "gas", "txt": "Unconventional energy boom drives oil and gas patents"},
-		{"cat": "gas", "txt": "GAIL slips nearly 2% after explosion at pipeline "},
+		{"cat": "gas", "txt": "GAIL : explosion at pipeline "},
 		{"cat": "gas", "txt": "Pradhan for setting up statutory safety body for oil & gas ind"},
 		{"cat": "gas", "txt": "U.S. imposes record fine on BNP in sanctions warning"},
 		{"cat": "gas", "txt": "ONGC to invest Rs 5700 crore in Bombay high; stock gains "},

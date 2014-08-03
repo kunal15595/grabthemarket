@@ -55,7 +55,13 @@
             <script type="text/javascript">
                 var stat = JSON.parse(sessionStorage.stat);
                 var broker = JSON.parse(sessionStorage.broker);
+                var bonus_submitted = JSON.parse(sessionStorage.bonus_submitted);
                 
+                if(stat.status == 'visit'){
+                    jQuery('.hide_stat').hide();
+                }else if(!bonus_submitted.submitted){
+                    jQuery('.hide_bon').hide();
+                }
                 if(stat.status != 'visit' || broker.opted == 'true'){
                     jQuery('.hide_broke').hide();
                 }

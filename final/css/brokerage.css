@@ -1,8 +1,93 @@
 html{
 	color: orange;
+	text-align: center;
+	font-family: cursive;
+}
+#table{
+	margin-top: 200px;
+	margin-left: 100px;
+	
 }
 tr{
 	height: 20px;
 	font-size: 18px;
-	/*max-width: 10px;*/
+}
+
+td{
+	min-width: 200px;
+	margin-top: 9px;
+	margin-left: 9px;
+	font-family: cursive;
+}
+td{
+	/*background-color: #765;*/
+}
+.character{
+	/*background-color: none;*/
+	/*color: black;*/
+}
+.blank{
+	/*background-color: transparent;*/
+}
+.broker_name{
+	/*background-color: #017;*/
+	font-style: italic;
+	font-size: 25px;
+}
+td:nth-child(1) {
+	color: red;
+}
+td:nth-child(2) {
+	color: green;
+}
+td:nth-child(3) {
+	color: yellow;
+}
+td:nth-child(4) {
+	color: violet;
+}
+
+.sign_up {
+	-moz-box-shadow:inset 7px 8px 12px 1px #ffffff;
+	-webkit-box-shadow:inset 7px 8px 12px 1px #ffffff;
+	box-shadow:inset 7px 8px 12px 1px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:22px;
+	-moz-border-radius-topleft:22px;
+	border-top-left-radius:22px;
+	-webkit-border-top-right-radius:22px;
+	-moz-border-radius-topright:22px;
+	border-top-right-radius:22px;
+	-webkit-border-bottom-right-radius:22px;
+	-moz-border-radius-bottomright:22px;
+	border-bottom-right-radius:22px;
+	-webkit-border-bottom-left-radius:22px;
+	-moz-border-radius-bottomleft:22px;
+	border-bottom-left-radius:22px;
+	text-indent:-3px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Comic Sans MS;
+	font-size:18px;
+	font-weight:bold;
+	font-style:normal;
+	height:28px;
+	line-height:18px;
+	width: 101px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:4px 3px 2px #ffffff;
+}
+.sign_up:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.sign_up:active {
+	position:relative;
+	top:1px;
 }

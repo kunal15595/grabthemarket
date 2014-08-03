@@ -12,6 +12,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../final/css/clock.css"/>
 	<script type="text/javascript" src="countdown.js" ></script>
 </head>
 <body>
@@ -34,14 +35,15 @@
 		
 		var check = setInterval(function(){
 			now += 4000;
+			var stat = JSON.parse(sessionStorage.stat);
 			// console.log( "its",now,"now");
 			if (now > game_stop) {
 				// console.log("Shifting", now, game_start,game_stop);
 	 			// window.parent.location = '../final/bonus.php';
-			}else if(now >= game_start-2.5*1000 && now <= game_start+1.6*1000){
+			}else if(now >= game_start-2.5*1000 && now <= game_start+10*1000 && stat.status == 'visit'){
 			// console.log("between");
 				
-				var stat = JSON.parse(sessionStorage.stat);
+				
 				stat.status = 'start';
 				sessionStorage.stat = JSON.stringify(stat);
 

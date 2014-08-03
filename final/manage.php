@@ -14,6 +14,7 @@
 	            session_start();
 	        }
 			$set = true;
+			$name = "";
 			if (isset($_GET['inc']) && !empty($_GET['inc'])) {
 				$name = $_GET['inc'];
 			    $set = false;
@@ -141,7 +142,6 @@
 		    jQuery.noConflict();
 		    
 			
-			// var net_credit = "<?php echo $net_credit;?>";
 
 			if (comp_shares==0) {
 				jQuery('#sell').hide();
