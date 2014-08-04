@@ -16,7 +16,8 @@ jQuery('#credit_header').html('Credit');
 jQuery(document).ready(function() {
 	var count=0, tim=0, growl, growlmessage = "", growlpending = "",
 		shares, timeline, current_price, money, portfolio, port,
-		list = (JSON.parse(sessionStorage.list)).companies;
+		temp = JSON.parse(sessionStorage.list),
+		list = temp.companies;
 
 	
 	function repeat () {

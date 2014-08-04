@@ -39,7 +39,8 @@
 	var  invested, quantity, profit, company, ids = [], nums = [],
 		refreshIntervalId, clicked = false;
 		table = document.getElementById('table'),
-		list = (JSON.parse(sessionStorage.list)).companies,
+		tmp = JSON.parse(sessionStorage.list),
+		list = tmp.companies,
 		now = (new Date()).getTime(),
 		game = JSON.parse(sessionStorage.game),
 		money = JSON.parse(sessionStorage.money),

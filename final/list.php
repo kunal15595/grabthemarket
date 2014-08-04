@@ -6,7 +6,8 @@
 	<body>
 		<div id="content"></div>
         <script type="text/javascript">
-			var list = JSON.parse(sessionStorage.list).companies;
+			var temp = JSON.parse(sessionStorage.list);
+			var list = temp.companies;
 			for (var i = 1; i < list.length; i++) {
 				var item = document.createElement("div");
 				item.setAttribute('class', 'list');

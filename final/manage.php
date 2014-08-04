@@ -106,7 +106,8 @@
 		<script type="text/javascript">
 			var name, id;
 			var status = 'start', pre_status = 'start', set = "<?php echo $set;?>";
-			var list = JSON.parse(sessionStorage.list).companies;
+			var tmp = JSON.parse(sessionStorage.list);
+			var list = tmp.companies;
 			var temp = Math.round(Math.random()*20);
 			if (set) {
 				add(temp);

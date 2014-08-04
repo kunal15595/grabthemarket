@@ -158,7 +158,8 @@ jQuery(document).ready(function(){
 	}
 	
 	function past_price (comp) {
-		var list = JSON.parse(sessionStorage.list).companies;
+		var temp = JSON.parse(sessionStorage.list);
+		var list = temp.companies;
 		for (var i = 0; i < list.length; i++) {
 			if(list[i].name == comp.toString())return list[i].starting_price;
 		}

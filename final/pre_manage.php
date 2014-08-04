@@ -103,7 +103,8 @@
 			var shares = JSON.parse(sessionStorage.shares);
 			var stat = JSON.parse(sessionStorage.stat);
 			var set = "<?php echo $set;?>", pre_status = stat.status;
-			var list = JSON.parse(sessionStorage.list).companies;
+			var tmp = JSON.parse(sessionStorage.list);
+			var list = tmp.companies;
 			var temp = Math.round(Math.random()*20);
 			console.log(set);
 			if (set) {
