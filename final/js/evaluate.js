@@ -20,12 +20,11 @@ jQuery(document).ready(function() {
 
 	
 	function repeat () {
-		growl = JSON.parse(sessionStorage.growl);
-		money = JSON.parse(sessionStorage.money);
-		portfolio = JSON.parse(sessionStorage.portfolio);
 		
-		growlmessage = growl.message;
-		growlpending = growl.pending;
+		money = JSON.parse(sessionStorage.money);
+		
+		
+		
 		// console.log(JSON.parse(sessionStorage.profit));
 		net_profit = Math.round(money.profit*100)/100;
 		net_credit = Math.round(money.credit*100)/100;
@@ -43,7 +42,10 @@ jQuery(document).ready(function() {
 			jQuery('#net_profit').html(net_profit.toString());
 		}
 		jQuery('#net_credit').html(net_credit);
+	}
 
+	function profit_evaluate () { 
+		portfolio = JSON.parse(sessionStorage.portfolio);
 		shares = JSON.parse(sessionStorage.shares);
 		timeline = JSON.parse(sessionStorage.timeline);
 		port = Array.apply(null, new Array(list.length)).map(Number.prototype.valueOf,0);
@@ -66,9 +68,13 @@ jQuery(document).ready(function() {
 			sessionStorage.portfolio = JSON.stringify(portfolio);
 			sessionStorage.timeline = JSON.stringify(timeline);
 		}
-	 
+	}
+
+	function show_growl () { 
 		// console.log("growl_message",growlmessage,"growl_pending",growlpending);
-    
+		growl = JSON.parse(sessionStorage.growl);
+    	growlmessage = growl.message;
+    	growlpending = growl.pending;
 	    if((growlpending===true || growlpending=='1' || growlpending=='true') && growlmessage !==''){
             
             window.parent.jQuery.growlUI(growlmessage);
@@ -83,10 +89,8 @@ jQuery(document).ready(function() {
 		var now = new Date().getTime(), game = JSON.parse(sessionStorage.game);
 		var bonus_submit = JSON.parse(sessionStorage.bonus_submitted);
 		// console.log(now - game_start, (bonus_submit.count + 1)*2*60*10000);
-		if (now - game.game_start > (bonus_submit.count + 1)*10*60*1000) {
-
-			if(bonus_submit.submitted){
-
+		if(bonus_submit.submitted){
+			if (now - game.game_start > (bonus_submit.count + 1)*10*60*1000) {
 				var bon = JSON.parse(sessionStorage.bonus);
 				var num = bonus_submit.count;
 				// console.log("num", num);
@@ -109,7 +113,7 @@ jQuery(document).ready(function() {
 
 	setTimeout(function(){
 		setInterval(function(){
-			repeat();
+			show_growl();
 		},3000);
 		
 	}, 2000);	
@@ -117,6 +121,10 @@ jQuery(document).ready(function() {
 	setInterval(function(){
 		bonus_evaluate();
 	},4000);
+
+	setInterval(function(){
+		profit_evaluate();
+	},20*1000);
 	
 
 	
