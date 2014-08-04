@@ -1,4 +1,4 @@
-var status, flag = [], length = 21; 
+ var status, flag = [], length = 21; 
 
 jQuery(document).ready(function(){
 	
@@ -158,25 +158,31 @@ jQuery(document).ready(function(){
 	}
 	
 	function past_price (comp) {
-		var ret;
-		jQuery.ajax({
-            url: '../data/'+String(comp)+'.txt',
-            async: false, 
-            success: function( data, status ) {
-                var prices = data.split(/\n|,|\s+/);
-                // console.log(prices);
-                var rows = prices.length;
-                // console.log(rows);
-                var game = JSON.parse(sessionStorage.game);
-                ret = prices[(game.game_start)%(prices.length-1)];
+		var list = JSON.parse(sessionStorage.list).companies;
+		for (var i = 0; i < list.length; i++) {
+			if(list[i].name == comp.toString())return list[i].starting_price;
+		}
+		
+		return 100;
+		// var ret;
+		// jQuery.ajax({
+  //           url: '../data/'+String(comp)+'.txt',
+  //           async: false, 
+  //           success: function( data, status ) {
+  //               var prices = data.split(/\n|,|\s+/);
+  //               // console.log(prices);
+  //               var rows = prices.length;
+  //               // console.log(rows);
+  //               var game = JSON.parse(sessionStorage.game);
+  //               ret = prices[(game.game_start)%(prices.length-1)];
                 
-            },
-            error: function( jqXHR, status, error ) {
-                console.log( 'Error: ' + error );
-            }
-        });
+  //           },
+  //           error: function( jqXHR, status, error ) {
+  //               console.log( 'Error: ' + error );
+  //           }
+  //       });
         
-        return Math.round(parseFloat(ret)*100)/100; 
+  //       return Math.round(parseFloat(ret)*100)/100; 
 	}
 
 	function end_price (comp) {

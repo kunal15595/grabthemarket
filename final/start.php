@@ -3,11 +3,20 @@
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/progress.css">
+    <link rel="stylesheet" type="text/css" href="css/load.css">
     <script type="text/javascript" src= "news/news.js"></script>
     <script type="text/javascript" src= "../js/jq.js"></script>
     <script type="text/javascript" src= "js/common.js"></script>
 </head>
 <body>
+    <h1>Grab the market !</h1>
+    <a class="triggerFull" id="instructions" href="instructions.php">Instructions</a>
+    <a class="triggerFull" id="highscores" href="highscores.php">Highscores</a>
+    <a class="triggerFull" id="startgame" href="#">Start Game</a>
+    <div id="content">
+        <span class="expand"></span>
+    </div>
     <?php 
         session_start();
         $_SESSION['game_visit'] = microtime(true)*1000*10000;
@@ -23,7 +32,25 @@
         $_SESSION['growlpending'] = 'true';
         
     ?>
-    
+    <script>        
+
+        $(document).ready(function() {
+            $('#content').removeClass('fullwidth');     
+            $('#startgame').click(function(e) {
+                e.preventDefault();
+                $('#content').removeClass('fullwidth').delay(10).queue(function(next){
+                    $(this).addClass('fullwidth');
+                    next();
+                });
+                setTimeout(function() {
+                window.location = 'index.php';  
+                }, 1000*10);
+                
+                return false;
+            });
+        });
+
+    </script>
     <script type="text/javascript">
         var brokers_name = ['Angel Broking', 'Investopedia', 'Motilal Oswal', 'Indus Invest', 'InvestMentor Securites',
             'Aracade Stock brokers', 'Karvy group', 'Investsmart', 'Dalmia Securities', 'SMC Group', 'Share Khan',
@@ -50,27 +77,27 @@
         var list = {
             "companies": [
                 {"name": '', "show": '', "id": 0},
-                {"name": 'ARTL', "show": companies_name[1], "id": 1},
-                {"name": 'CIPLA', "show": companies_name[2], "id": 2},
-                {"name": 'DLF', "show": companies_name[3], "id": 3},
-                {"name": 'INFY', "show": companies_name[4], "id": 4},
-                {"name": 'ONGC', "show": companies_name[5], "id": 5},
-                {"name": 'NTPC', "show": companies_name[6], "id": 6},
-                {"name": 'HDB', "show": companies_name[7], "id": 7},
-                {"name": 'TCS', "show": companies_name[8], "id": 8},
-                {"name": 'RIL', "show": companies_name[9], "id": 9},
-                {"name": 'SI', "show": companies_name[10], "id": 10},
-                {"name": 'RAN', "show": companies_name[11], "id": 11},
-                {"name": 'SAIL', "show": companies_name[12], "id": 12},
-                {"name": 'IB', "show": companies_name[13], "id": 13},
-                {"name": 'VOD', "show": companies_name[14], "id": 14},
-                {"name": 'HMC', "show": companies_name[15], "id": 15},
-                {"name": 'AC', "show": companies_name[16], "id": 16},
-                {"name": 'NES', "show": companies_name[17], "id": 17},
-                {"name": 'IBN', "show": companies_name[18], "id": 18},
-                {"name": 'LT', "show": companies_name[19], "id": 19},
-                {"name": 'WIT', "show": companies_name[20], "id": 20},
-                {"name": 'TTM', "show": companies_name[21], "id": 21}
+                {"name": 'ARTL', "show": companies_name[1], "id": 1, "starting_price": 100},
+                {"name": 'CIPLA', "show": companies_name[2], "id": 2, "starting_price": 100},
+                {"name": 'DLF', "show": companies_name[3], "id": 3, "starting_price": 100},
+                {"name": 'INFY', "show": companies_name[4], "id": 4, "starting_price": 100},
+                {"name": 'ONGC', "show": companies_name[5], "id": 5, "starting_price": 100},
+                {"name": 'NTPC', "show": companies_name[6], "id": 6, "starting_price": 100},
+                {"name": 'HDB', "show": companies_name[7], "id": 7, "starting_price": 100},
+                {"name": 'TCS', "show": companies_name[8], "id": 8, "starting_price": 100},
+                {"name": 'RIL', "show": companies_name[9], "id": 9, "starting_price": 100},
+                {"name": 'SI', "show": companies_name[10], "id": 10, "starting_price": 100},
+                {"name": 'RAN', "show": companies_name[11], "id": 11, "starting_price": 100},
+                {"name": 'SAIL', "show": companies_name[12], "id": 12, "starting_price": 100},
+                {"name": 'IB', "show": companies_name[13], "id": 13, "starting_price": 100},
+                {"name": 'VOD', "show": companies_name[14], "id": 14, "starting_price": 100},
+                {"name": 'HMC', "show": companies_name[15], "id": 15, "starting_price": 100},
+                {"name": 'AC', "show": companies_name[16], "id": 16, "starting_price": 100},
+                {"name": 'NES', "show": companies_name[17], "id": 17, "starting_price": 100},
+                {"name": 'IBN', "show": companies_name[18], "id": 18, "starting_price": 100},
+                {"name": 'LT', "show": companies_name[19], "id": 19, "starting_price": 100},
+                {"name": 'WIT', "show": companies_name[20], "id": 20, "starting_price": 100},
+                {"name": 'TTM', "show": companies_name[21], "id": 21, "starting_price": 100}
                 
             ]
         };
@@ -86,7 +113,6 @@
         ];
         var now = (new Date()).getTime();
 
-        sessionStorage.list = JSON.stringify(list);
         sessionStorage.compare = JSON.stringify(compare);
         sessionStorage.bonus = JSON.stringify([]);
         sessionStorage.bonus_submitted = JSON.stringify({"submitted": false, "count": 0});
@@ -101,12 +127,15 @@
         sessionStorage.active_news = JSON.stringify([ns[Math.floor(Math.random()*ns.length)], ns[Math.floor(Math.random()*ns.length)]]);
         var shares = [];
         for (var i = list.companies.length - 1; i > 0; i--) {
-            shares.push({"company": list.companies[i].name, "price": parseFloat(past_price(list.companies[i].name)),
-                "quantity": Math.round(((new Date()).getDate()/30*i*600)/past_price(list.companies[i].name)), "tag": 'buy', "id": list.companies[i].id});
+            var start_price = past_price(list.companies[i].name);
+            list.companies[i].starting_price = start_price;
+            shares.push({"company": list.companies[i].name, "price": parseFloat(start_price),
+                "quantity": Math.round(((new Date()).getDate()/30*i*600)/start_price), "tag": 'buy', "id": list.companies[i].id});
         }
         sessionStorage.shares = JSON.stringify(shares);
+        sessionStorage.list = JSON.stringify(list);
         // console.log(shares);
-        window.location = 'index.php';
+        // window.location = 'index.php';
     </script>
 
 </body>
