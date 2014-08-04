@@ -79,7 +79,7 @@
                 jQuery.ajax({
                         url: '../data/'+list[temp].name+'.txt',
                         success: function( data, status ) {
-                            prices = data.split(/\n|\s+/);
+                            prices = data.split(/\n+|\s+/);
                             // console.log("prices", prices);
                             rows = prices.length;
                             // console.log("rows", rows);

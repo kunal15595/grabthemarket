@@ -100,7 +100,7 @@
 			            
 						// console.log( status );
 						
-						var prices = data.split("\n"), jsonObj = [], match, date, str, amount,d = new Date(),n = d.getTime(), rows = prices.length;
+						var prices = data.split(/[\s,\n]+/), jsonObj = [], match, date, str, amount,d = new Date(),n = d.getTime(), rows = prices.length;
 						// console.log(rows);
 						for (var j = rows-1; j >= 0; j--) {
 							// str = data[i].Date;

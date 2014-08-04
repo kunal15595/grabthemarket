@@ -64,7 +64,7 @@
         	            
         				// console.log( status );
         				
-        				var prices = data.split("\n");
+        				var prices = data.split(/[\s,\n]+/);
         				// console.log( prices );
         				var jsonObj = [], match, date, str, rows = data.length, amount,d = new Date(),n = d.getTime();
         				
