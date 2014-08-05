@@ -544,3 +544,15 @@
 ?>
 <!-- <script type="text/javascript" src="../js/jq.js"></script> -->
 <!-- <script type="text/javascript" src="../js/block.js"></script> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	$.post( "final/functions.php", { 'action': 'register_user','arg': 'hnb', 'quantity': 'jhnv' } );
+</script>
+</body>
+</html>
