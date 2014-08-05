@@ -36,7 +36,7 @@ $(document).ready(function() {
                     var series = this.series[0];
                     setInterval(function() {
                     	
-                        var x = (new Date()).getTime(), y = Math.round(net_profit*100)/100;
+                        var x = right_now(), y = Math.round(net_profit*100)/100;
                             // y = Math.random()
                         series.addPoint([x, y], true, false);
                         repeat();
@@ -96,9 +96,9 @@ $(document).ready(function() {
             threshold: 0,
             data: (function() {
                 // generate an array of random data
-                var data = [], time = (new Date()).getTime(), i;
+                var data = [], time = right_now(), i;
             // console.log(start,prices);
-                // newTime = (new Date()).getTime();
+                // newTime = right_now();
                 
                 // console.log("now",newTime,"start",game_start);
                 // timeDiff = Math.round(((newTime - game_start/10000)/10000)/5);

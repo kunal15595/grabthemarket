@@ -41,7 +41,7 @@
 		table = document.getElementById('table'),
 		tmp = JSON.parse(sessionStorage.list),
 		list = tmp.companies,
-		now = (new Date()).getTime(),
+		now = right_now(),
 		game = JSON.parse(sessionStorage.game),
 		money = JSON.parse(sessionStorage.money),
 		game_start = game.game_start,
@@ -54,7 +54,7 @@
 		profit = Array.apply(null, new Array(list.length)).map(Number.prototype.valueOf,0);
 		company = Array.apply(null, new Array(list.length)).map(String.prototype.valueOf,'');
 
-		now = (new Date()).getTime();
+		now = right_now();
 		game = JSON.parse(sessionStorage.game);
 		money = JSON.parse(sessionStorage.money);
 		shares = JSON.parse(sessionStorage.shares);
@@ -119,7 +119,7 @@
 			if (now > game_start) {
 				insert = diff.toString();
 				if(diff > 0)insert = '+' + insert; 
-				if(new Date().getTime() > game.game_start )insert += '('+(Math.round(diff/past_price(company[i])*100)/100).toString()+'%)';
+				if(right_now() > game.game_start )insert += '('+(Math.round(diff/past_price(company[i])*100)/100).toString()+'%)';
 			}
 			cell3.innerHTML = insert;
 			
@@ -144,7 +144,7 @@
 			var diff = Math.round((cur_price(company[temp]) - past_price(company[temp])) *100)/100;
 			insert = diff.toString();
 			if(diff > 0)insert = '+' + insert; 
-			if(new Date().getTime() > game.game_start )insert += '('+(Math.round(diff/past_price(company[temp])*100)/100).toString()+'%)';
+			if(right_now() > game.game_start )insert += '('+(Math.round(diff/past_price(company[temp])*100)/100).toString()+'%)';
 			// console.log(insert,diff,cur_price(company[temp]), past_price(company[temp]));
 			document.getElementById(nums[i]).innerHTML = quantity[temp];
 			document.getElementById(ids[i]).innerHTML = insert;	
@@ -183,7 +183,7 @@
 		});
 		jQuery('.expand').click(function() {
 			// console.log('1');
-			if(new Date().getTime() > game.game_start )clicked = true;
+			if(right_now() > game.game_start )clicked = true;
 			jQuery('#container').empty();	
 			var prices,rows,start,amount,d,n,invested;
 			if(now < game.game_start)return;
@@ -217,7 +217,7 @@
 			
 			                // set up the updating of the chart each second
 			                var series = this.series[0];
-			                var now = (new Date()).getTime();
+			                var now = right_now();
 			                function repeat_port() {
 			                    portfolio = JSON.parse(sessionStorage.portfolio);
 			                    console.log(portfolio[portfolio.length-1].port[num-1]);
@@ -284,7 +284,7 @@
 			        threshold: 0,
 			        data: (function() {
 			            // generate an array of random data
-			            var data = [], time = now, i, newTime = (new Date()).getTime();
+			            var data = [], time = now, i, newTime = right_now();
 			            
 			            // console.log("now",newTime,"start",game_start);
 			            var timeDiff = Math.round((newTime - game_start/10000)/1000);

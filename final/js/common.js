@@ -91,7 +91,7 @@ jQuery(document).ready(function(){
 		jQuery('.list').css(
 		{
 			"color": "#dddddd",
-			width: "80%",
+			"width": "80%",
 			"text-align": "center",
 			"background-color": "#222222"
 		});
@@ -102,8 +102,14 @@ jQuery(document).ready(function(){
 	}
 
 	function cur_price (comp) {
-		var ret, now = (new Date()).getTime(), game = JSON.parse(sessionStorage.game);
+
+		var ret, now = right_now(), game = JSON.parse(sessionStorage.game);
 		if(now < game.game_start)return past_price(comp);
+		var temp = JSON.parse(sessionStorage.list);
+		var list = temp.companies;
+		for (var i = 0; i < list.length; i++) {
+			if(list[i].name == comp.toString())return list[i].span_price[Math.round((now - game.game_start)/(1000*20))];
+		}
 		jQuery.ajax({
             url: '../data/'+String(comp)+'.txt',
             async: false, 
@@ -113,7 +119,7 @@ jQuery(document).ready(function(){
                 var rows = prices.length;
                 // console.log(rows);
                 var game = JSON.parse(sessionStorage.game);
-                var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*20));
+                var time_diff_5 = Math.round((right_now() - game.game_start)/(1000*20));
                 // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
                 ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
                 // console.log("ret", ret);
@@ -128,7 +134,7 @@ jQuery(document).ready(function(){
 	}
 
 	function mid_price (comp) {
-		var ret, now = (new Date()).getTime(), game = JSON.parse(sessionStorage.game), broker = JSON.parse(sessionStorage.broker);
+		var ret, now = right_now(), game = JSON.parse(sessionStorage.game), broker = JSON.parse(sessionStorage.broker);
 		if(now < game.game_start)now = game.game_start;
 		jQuery.ajax({
             url: '../data/'+String(comp)+'.txt',
@@ -158,6 +164,7 @@ jQuery(document).ready(function(){
 	}
 	
 	function past_price (comp) {
+
 		if (sessionStorage.getItem('list')){
 			var temp = JSON.parse(sessionStorage.list);
 			var list = temp.companies;
@@ -165,16 +172,17 @@ jQuery(document).ready(function(){
 				if(list[i].name == comp.toString())return list[i].starting_price;
 			}
 		}
-		var ret;
+		var ret, prices,now = right_now();
+		var game = JSON.parse(sessionStorage.game);
 		jQuery.ajax({
             url: '../data/'+String(comp)+'.txt',
             async: false, 
             success: function( data, status ) {
-                var prices = data.split(/\n|,|\s+/);
+                prices = data.split(/\n|,|\s+/);
                 // console.log(prices);
                 var rows = prices.length;
                 // console.log(rows);
-                var game = JSON.parse(sessionStorage.game);
+                
                 ret = prices[(game.game_start)%(prices.length-1)];
                 
             },
@@ -183,7 +191,8 @@ jQuery(document).ready(function(){
             }
         });
         
-        return Math.round(parseFloat(ret)*100)/100; 
+		if(now < game.game_start)return prices;
+        else return Math.round(parseFloat(ret)*100)/100; 
 	}
 
 	function end_price (comp) {
@@ -210,7 +219,7 @@ jQuery(document).ready(function(){
 
 	function cur_sec () {
 		var game = JSON.parse(sessionStorage.game);
-		return new Date().getTime() - game.game_start;
+		return right_now() - game.game_start;
 	}
 	
 	function block (mess) {
@@ -230,4 +239,14 @@ jQuery(document).ready(function(){
             opacity: 0.5, 
             color: '#fff' 
         } });   
+    }
+
+    function right_now () {
+    	var ret = (new Date()).getTime() - JSON.parse(sessionStorage.client_time_diff);
+    	return ret;
+    }
+
+    function date_now () {
+    	var ret = new Date(right_now());
+    	return ret.getDate();
     }

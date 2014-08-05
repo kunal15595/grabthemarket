@@ -58,7 +58,7 @@
             var game_start = game.game_start;
             var list = JSON.parse(sessionStorage.list).companies;
             // console.log("game_start",game_start);
-            var now = (new Date()).getTime();
+            var now = right_now();
             var temp = Math.round(Math.random()*20);
             if (set) {
                 add(temp);
@@ -68,7 +68,7 @@
             }
    
             $(document).ready(function() {
-                var prices, rows, amount, d = new Date(), n = d.getTime(), start = game_start;
+                var prices, rows, amount, d = new Date(), n = right_now(), start = game_start;
                 // console.log('start', start);   
                 Highcharts.setOptions({
                     global: {
@@ -102,7 +102,7 @@
                                     var series = this.series[0];
                                     setInterval(function() {
                                         start%=(rows-1);
-                                        var x = (new Date()).getTime(), // current time
+                                        var x = right_now(), // current time
                                             y = Math.round(prices[start]*100)/100
                                             // y = Math.random()
                                         series.addPoint([x, y], true, false);
@@ -172,10 +172,10 @@
                             // threshold: 38.35,
                             data: (function() {
                                 // generate an array of random data
-                                var data = [], time = (new Date()).getTime(), i;
+                                var data = [], time = right_now(), i;
                                 // console.log(start,prices);
                                 // console.log("now",now,"start",game_start);
-                                timeDiff = Math.round((new Date().getTime() - game.game_start)/(1000*20));
+                                timeDiff = Math.round((right_now() - game.game_start)/(1000*20));
                                 // console.log(timeDiff);
                                 // console.log("diff",timeDiff);
                                 for (i = -timeDiff ; i <= 0; i++) {

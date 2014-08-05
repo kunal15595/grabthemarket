@@ -5,7 +5,7 @@ html{
 }
 #table{
 	margin-top: 200px;
-	margin-left: 100px;
+	margin-left: 10px;
 	
 }
 tr{
@@ -67,17 +67,17 @@ td:nth-child(4) {
 	-webkit-border-bottom-left-radius:22px;
 	-moz-border-radius-bottomleft:22px;
 	border-bottom-left-radius:22px;
-	text-indent:-3px;
+	/*text-indent:-3px;*/
 	border:1px solid #dcdcdc;
 	display:inline-block;
 	color:#777777;
 	font-family:Comic Sans MS;
-	font-size:18px;
-	font-weight:bold;
+	font-size:15px;
+	/*font-weight:bold;*/
 	font-style:normal;
-	height:28px;
+	height:24px;
 	line-height:18px;
-	width: 101px;
+	width: 121px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:4px 3px 2px #ffffff;

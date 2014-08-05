@@ -1,5 +1,5 @@
 function cur_price (comp) {
-	var ret, now = (new Date()).getTime(), game = JSON.parse(sessionStorage.game);
+	var ret, now = right_now(), game = JSON.parse(sessionStorage.game);
 	if(now < game.game_start)return past_price(comp);
 	jQuery.ajax({
         url: '../data/'+String(comp)+'.txt',
@@ -10,7 +10,7 @@ function cur_price (comp) {
             var rows = prices.length;
             // console.log(rows);
             var game = JSON.parse(sessionStorage.game);
-            var time_diff_5 = Math.round((new Date().getTime() - game.game_start)/(1000*20));
+            var time_diff_5 = Math.round((right_now() - game.game_start)/(1000*20));
             // console.log("cur_price", prices[(time_diff + game.game_start)%(prices.length-1)]);
             ret = prices[(time_diff_5 + game.game_start)%(prices.length-1)];
             // console.log("ret", ret);
@@ -21,6 +21,11 @@ function cur_price (comp) {
     });
     return parseFloat(ret); 
     
+}
+
+function right_now () {
+	var ret = (new Date()).getTime() - JSON.parse(sessionStorage.client_time_diff);
+	return ret;
 }
 
 function past_price (comp) {
@@ -46,7 +51,7 @@ function past_price (comp) {
 
 function cur_sec () {
 	var game = JSON.parse(sessionStorage.game);
-	return new Date().getTime() - game.game_start;
+	return right_now() - game.game_start;
 }
 	
 // setStatus('manage');

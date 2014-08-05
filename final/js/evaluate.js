@@ -87,7 +87,7 @@ jQuery(document).ready(function() {
 	}
 
 	function bonus_evaluate () {
-		var now = new Date().getTime(), game = JSON.parse(sessionStorage.game);
+		var now = right_now(), game = JSON.parse(sessionStorage.game);
 		var bonus_submit = JSON.parse(sessionStorage.bonus_submitted);
 		// console.log(now - game_start, (bonus_submit.count + 1)*2*60*10000);
 		if(bonus_submit.submitted){
@@ -110,7 +110,10 @@ jQuery(document).ready(function() {
 		}
 		
 	}
-	
+	function right_now () {
+		var ret = (new Date()).getTime() - JSON.parse(sessionStorage.client_time_diff);
+		return ret;
+	}
 
 	setTimeout(function(){
 		setInterval(function(){

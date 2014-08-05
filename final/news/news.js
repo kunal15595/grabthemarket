@@ -164,7 +164,7 @@ function shuffle(array) {
   while (0 !== currentIndex) {
 
     // Pick a remaining element...
-    randomIndex = Math.floor((new Date()).getDate()/30 * currentIndex);
+    randomIndex = Math.floor(date_now()/30 * currentIndex);
     currentIndex -= 1;
 
     // And swap it with the current element.
@@ -174,4 +174,9 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function right_now () {
+	var ret = (new Date()).getTime() - JSON.parse(sessionStorage.client_time_diff);
+	return ret;
 }

@@ -18,10 +18,13 @@
         <span class="expand"></span>
     </div>
     <?php 
-        session_start();
-        $_SESSION['game_visit'] = microtime(true)*1000*10000;
-        $_SESSION['game_start'] = $_SESSION['game_visit'] + 15*60*1000*10000;
-        $_SESSION['game_stop'] = $_SESSION['game_visit'] + 2.5*60*60*1000*10000;
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $now = microtime(true)*1000*10000;
+        $_SESSION['game_visit'] = $now;
+        $_SESSION['game_start'] = $now + 15*60*1000*10000;
+        $_SESSION['game_stop'] = $now + 2.5*60*60*1000*10000;
         
         $_SESSION['net_credit'] = 10*1000;
         $_SESSION['net_profit'] = 0;
@@ -30,10 +33,16 @@
         
         $_SESSION['growlmessage'] = 'hello !';
         $_SESSION['growlpending'] = 'true';
+
+        echo $_SESSION['name'];
+        echo $_SESSION['id'];
+        die();
         
     ?>
     <script>        
-
+        sessionStorage.clear();
+        sessionStorage.client_time_diff = JSON.stringify(new Date().getTime() - Math.round((<?php echo $now;?>)/10000));
+        // console.log(sessionStorage.client_time_diff);
         $(document).ready(function() {
             $('#content').removeClass('fullwidth');     
             $('#startgame').click(function(e) {
@@ -77,31 +86,32 @@
         var list = {
             "companies": [
                 {"name": '', "show": '', "id": 0},
-                {"name": 'ARTL', "show": companies_name[1], "id": 1, "starting_price": 100},
-                {"name": 'CIPLA', "show": companies_name[2], "id": 2, "starting_price": 100},
-                {"name": 'DLF', "show": companies_name[3], "id": 3, "starting_price": 100},
-                {"name": 'INFY', "show": companies_name[4], "id": 4, "starting_price": 100},
-                {"name": 'ONGC', "show": companies_name[5], "id": 5, "starting_price": 100},
-                {"name": 'NTPC', "show": companies_name[6], "id": 6, "starting_price": 100},
-                {"name": 'HDB', "show": companies_name[7], "id": 7, "starting_price": 100},
-                {"name": 'TCS', "show": companies_name[8], "id": 8, "starting_price": 100},
-                {"name": 'RIL', "show": companies_name[9], "id": 9, "starting_price": 100},
-                {"name": 'SI', "show": companies_name[10], "id": 10, "starting_price": 100},
-                {"name": 'RAN', "show": companies_name[11], "id": 11, "starting_price": 100},
-                {"name": 'SAIL', "show": companies_name[12], "id": 12, "starting_price": 100},
-                {"name": 'IB', "show": companies_name[13], "id": 13, "starting_price": 100},
-                {"name": 'VOD', "show": companies_name[14], "id": 14, "starting_price": 100},
-                {"name": 'HMC', "show": companies_name[15], "id": 15, "starting_price": 100},
-                {"name": 'AC', "show": companies_name[16], "id": 16, "starting_price": 100},
-                {"name": 'NES', "show": companies_name[17], "id": 17, "starting_price": 100},
-                {"name": 'IBN', "show": companies_name[18], "id": 18, "starting_price": 100},
-                {"name": 'LT', "show": companies_name[19], "id": 19, "starting_price": 100},
-                {"name": 'WIT', "show": companies_name[20], "id": 20, "starting_price": 100},
-                {"name": 'TTM', "show": companies_name[21], "id": 21, "starting_price": 100}
+                {"name": 'ARTL', "show": companies_name[1], "id": 1, "starting_price": 100, "span_price": []},
+                {"name": 'CIPLA', "show": companies_name[2], "id": 2, "starting_price": 100, "span_price": []},
+                {"name": 'DLF', "show": companies_name[3], "id": 3, "starting_price": 100, "span_price": []},
+                {"name": 'INFY', "show": companies_name[4], "id": 4, "starting_price": 100, "span_price": []},
+                {"name": 'ONGC', "show": companies_name[5], "id": 5, "starting_price": 100, "span_price": []},
+                {"name": 'NTPC', "show": companies_name[6], "id": 6, "starting_price": 100, "span_price": []},
+                {"name": 'HDB', "show": companies_name[7], "id": 7, "starting_price": 100, "span_price": []},
+                {"name": 'TCS', "show": companies_name[8], "id": 8, "starting_price": 100, "span_price": []},
+                {"name": 'RIL', "show": companies_name[9], "id": 9, "starting_price": 100, "span_price": []},
+                {"name": 'SI', "show": companies_name[10], "id": 10, "starting_price": 100, "span_price": []},
+                {"name": 'RAN', "show": companies_name[11], "id": 11, "starting_price": 100, "span_price": []},
+                {"name": 'SAIL', "show": companies_name[12], "id": 12, "starting_price": 100, "span_price": []},
+                {"name": 'IB', "show": companies_name[13], "id": 13, "starting_price": 100, "span_price": []},
+                {"name": 'VOD', "show": companies_name[14], "id": 14, "starting_price": 100, "span_price": []},
+                {"name": 'HMC', "show": companies_name[15], "id": 15, "starting_price": 100, "span_price": []},
+                {"name": 'AC', "show": companies_name[16], "id": 16, "starting_price": 100, "span_price": []},
+                {"name": 'NES', "show": companies_name[17], "id": 17, "starting_price": 100, "span_price": []},
+                {"name": 'IBN', "show": companies_name[18], "id": 18, "starting_price": 100, "span_price": []},
+                {"name": 'LT', "show": companies_name[19], "id": 19, "starting_price": 100, "span_price": []},
+                {"name": 'WIT', "show": companies_name[20], "id": 20, "starting_price": 100, "span_price": []},
+                {"name": 'TTM', "show": companies_name[21], "id": 21, "starting_price": 100, "span_price": []}
                 
             ]
         };
         
+
         var compare = [
             {"selected": false}, {"selected": false}, {"selected": false},
             {"selected": false}, {"selected": false}, {"selected": false},
@@ -111,8 +121,8 @@
             {"selected": false}, {"selected": false}, {"selected": false}, 
             {"selected": false}, {"selected": false}, {"selected": false}
         ];
-        var now = (new Date()).getTime();
-
+        var now = right_now();
+        // console.log(now, <?php echo $now;?>);
         sessionStorage.compare = JSON.stringify(compare);
         sessionStorage.bonus = JSON.stringify([]);
         sessionStorage.bonus_submitted = JSON.stringify({"submitted": false, "count": 0});
@@ -127,10 +137,15 @@
         sessionStorage.active_news = JSON.stringify([ns[Math.floor(Math.random()*ns.length)], ns[Math.floor(Math.random()*ns.length)]]);
         var shares = [];
         for (var i = list.companies.length - 1; i > 0; i--) {
-            var start_price = past_price(list.companies[i].name);
+            var game = JSON.parse(sessionStorage.game);
+            var span_price = past_price(list.companies[i].name);
+            var start_price = span_price[(game.game_start)%(span_price.length-1)];
+            for (var j = game.game_start; j < game.game_start + 500; j++) {
+                list.companies[i].span_price.push(span_price[(j)%(span_price.length-1)]);    
+            }
             list.companies[i].starting_price = start_price;
             shares.push({"company": list.companies[i].name, "price": parseFloat(start_price),
-                "quantity": Math.round(((new Date()).getDate()/30*i*600)/start_price), "tag": 'buy', "id": list.companies[i].id});
+                "quantity": Math.round((date_now()/30*i*600)/start_price), "tag": 'buy', "id": list.companies[i].id});
         }
         sessionStorage.shares = JSON.stringify(shares);
         sessionStorage.list = JSON.stringify(list);

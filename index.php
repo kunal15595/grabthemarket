@@ -5,6 +5,7 @@
     $app_secret = '714602d237ea8e0947180eefaa8baf21';
     $app_namespace = 'grabthemarket';
     $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
+    // $app_url = 'http://localhost/grabthemarket/';
     $scope = 'email,publish_actions';
     
     require_once( 'Facebook/FacebookSession.php' );
@@ -49,11 +50,21 @@
        
       // print data
       echo  print_r( $graphObject, 1 );
+      echo $graphObject->getProperty('name');
+      echo $graphObject->getProperty('id');
+      if (!isset($_SESSION)) {
+        session_start();
+      }
+      $_SESSION['name'] = $graphObject->getProperty('name');
+      $_SESSION['id'] = $graphObject->getProperty('id');
+      
+      header("Location: ./final/start.php");
     } else {
       // show login url
       echo '<a href="' . $helper->getLoginUrl() . '">Login</a>';
     }
 ?>
 <script type="text/javascript">
-   	window.location = 'final/start.php';
+   	// window.location = 'final/start.php';
+    // window.location = '.';
 </script>

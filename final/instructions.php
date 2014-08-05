@@ -12,12 +12,7 @@
                 <li>
                     <h2>Companies</h2>
                         <p>Explore the statistics of the company</p>
-                    <h3></h3>
-                        <p><strong>Historical</strong> -> View the company's performance in past years</p>
-                    <h3></h3>
-                        <p><strong>Current</strong> -> See live changes in stock price</p>
-                    <h3></h3>
-                        <p><strong>Compare</strong> -> Explore the statistics of the company</p>
+                        <p></p>
                 </li>
                 <li>
                     <h2>Portfolio</h2>

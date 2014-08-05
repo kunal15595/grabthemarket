@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/port.css"/>
         
 		<script type="text/javascript" src="../js/jq.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="../js/jq-ui.js"></script>
         <script src="../Highcharts/js/highcharts.js"></script>
         <script src="../Highcharts/js/modules/exporting.js"></script>
@@ -86,7 +87,7 @@ $(function () {
                     rows = prices.length;
                     // console.log(rows);
                     // var amount,d,n;
-                    n = (new Date()).getTime();
+                    n = right_now();
                     n = "<?php echo $game_start;?>";
                     start = n%rows;
                     createChart();
@@ -182,7 +183,7 @@ $(function () {
                     threshold: 0,
                     data: (function() {
                         // generate an array of random data
-                        var data = [], time = now, i, newTime = (new Date()).getTime();
+                        var data = [], time = now, i, newTime = right_now();
                         
                         // console.log("now",newTime,"start",game_start);
                         var timeDiff = Math.round((newTime - game_start/10000)/(20*1000));
