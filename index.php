@@ -1,46 +1,3 @@
-<?php
-    session_start();
-    
-    $app_id = '1392753500972228';
-    $app_secret = '714602d237ea8e0947180eefaa8baf21';
-    $app_namespace = 'grabthemarket';
-    $app_url = 'https://apps.facebook.com/' . $app_namespace . '/';
-    // $app_url = 'http://grabthemarket.herokuapp.com/';
-    $scope = 'email,publish_actions';
-    
-    require_once( 'Facebook/FacebookSession.php' );
-    require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
-    require_once( 'Facebook/FacebookRequest.php' );
-    require_once( 'Facebook/FacebookResponse.php' );
-    require_once( 'Facebook/FacebookSDKException.php' );
-    require_once( 'Facebook/FacebookRequestException.php' );
-    require_once( 'Facebook/FacebookAuthorizationException.php' );
-    require_once( 'Facebook/GraphObject.php' );
-     
-    use Facebook\FacebookSession;
-    use Facebook\FacebookRedirectLoginHelper;
-    use Facebook\FacebookRequest;
-    use Facebook\FacebookResponse;
-    use Facebook\FacebookSDKException;
-    use Facebook\FacebookRequestException;
-    use Facebook\FacebookAuthorizationException;
-    use Facebook\GraphObject;
-     
-    // init app with app id (APPID) and secret (SECRET)
-    FacebookSession::setDefaultApplication($app_id,$app_secret);
-     
-    // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper( $app_url );
-     
-    try {
-      $session = $helper->getSessionFromRedirect();
-    } catch( FacebookRequestException $ex ) {
-      // When Facebook returns an error
-    } catch( Exception $ex ) {
-      // When validation fails or other local issues
-    }
-  
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +5,50 @@
         <meta charset="utf-8" />
         <title></title>
     </head>
+		  <?php
+		    session_start();
+		    header("X-Frame-Options: SAMEORIGIN"); 
+		    $app_id = '1392753500972228';
+		    $app_secret = '440f682dfbdec0eb1ca5bf2159023384';
+		    $app_namespace = 'grabthemarket';
+		    $app_url = 'https://apps.facebook.com/' . $app_namespace . '/';
+		    // $app_url = 'http://grabthemarket.herokuapp.com/';
+		    $scope = 'email,publish_actions';
+		    
+		    require_once( 'Facebook/FacebookSession.php' );
+		    require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
+		    require_once( 'Facebook/FacebookRequest.php' );
+		    require_once( 'Facebook/FacebookResponse.php' );
+		    require_once( 'Facebook/FacebookSDKException.php' );
+		    require_once( 'Facebook/FacebookRequestException.php' );
+		    require_once( 'Facebook/FacebookAuthorizationException.php' );
+		    require_once( 'Facebook/GraphObject.php' );
+		     
+		    use Facebook\FacebookSession;
+		    use Facebook\FacebookRedirectLoginHelper;
+		    use Facebook\FacebookRequest;
+		    use Facebook\FacebookResponse;
+		    use Facebook\FacebookSDKException;
+		    use Facebook\FacebookRequestException;
+		    use Facebook\FacebookAuthorizationException;
+		    use Facebook\GraphObject;
+		     
+		    // init app with app id (APPID) and secret (SECRET)
+		    FacebookSession::setDefaultApplication($app_id,$app_secret);
+		     
+		    // login helper with redirect_uri
+		    $helper = new FacebookRedirectLoginHelper( $app_url );
+		     
+		    try {
+		      $session = $helper->getSessionFromRedirect();
+		    } catch( FacebookRequestException $ex ) {
+		      // When Facebook returns an error
+		    } catch( Exception $ex ) {
+		      // When validation fails or other local issues
+		    }
+		  
+		?>
+
     <body>
   <h1>Welcome</h1>
 <?php
