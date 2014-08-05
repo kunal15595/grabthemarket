@@ -13,21 +13,9 @@
 	<script type="text/javascript" src="../js/jq.js"></script>
 	<script type="text/javascript">
 		var data = {
-			"compare": sessionStorage.compare,
-			"bonus": sessionStorage.bonus,
-			"bonus_submitted": sessionStorage.bonus_submitted,
 			"game": sessionStorage.game,
 			"money": sessionStorage.money,
-			"growl": sessionStorage.growl,
-			"stat": sessionStorage.stat,
-			"timeline": sessionStorage.timeline,
-			"portfolio": sessionStorage.portfolio,
-			"news": sessionStorage.news,
-			"broker": sessionStorage.broker,
-			"active_news": sessionStorage.active_news,
-			"game": sessionStorage.game,
-			"shares": sessionStorage.shares,
-			"list": sessionStorage.list
+			"portfolio": sessionStorage.portfolio
 		};
 		// console.log(data);
 		$.ajax({

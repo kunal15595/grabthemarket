@@ -73,6 +73,7 @@
 			time: Math.round(tim), 
 			width:120, 
 			height:60, 
+			style: "flip",
 			rangeHi		: high,		// The highest unit of time to display
 			rangeLo		: low,		// The lowest unit of time to display
 		});

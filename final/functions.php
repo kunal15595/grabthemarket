@@ -74,6 +74,11 @@
 				pre_sell($arg,$quantity);
 			}
 			break;
+		case 'register_user':
+			{
+				register_user($arg,$quantity);
+			}
+			break;
 		case 'bonus_submit':
 			{
 				bonus_submit($arg);
@@ -489,13 +494,11 @@
 		pg_query($dbconn,$query);
 		
 	}
-	function register_user($userid, $fullname, $email, $institute, $mobile, $username, $pass){
+	function register_user($userid, $fullname){
 	    global $id,$dbconn;
-	    if($userid=='' || $fullname==''|| $username=='' || $pass==''){
-	        return;
-	    }
+	    
 	    $cash = "5000";
-	    $query = "INSERT INTO users (pass, cash, email, username, userid, mobile, institute, name) VALUES ('".$pass."','".$cash."','".$email."','".$username."','".$userid."','".$mobile."','".$institute."','".$fullname."')";
+	    $query = "INSERT INTO users (userid, name) VALUES ('".$userid."','".$fullname."')";
 		pg_query($dbconn,$query);
 	}
 	function list_highscores()

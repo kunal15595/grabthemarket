@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="final/css/clock.css"/>
+		<script type="text/javascript" src="clock/countdown.js" ></script>
+
+		<script type="text/javascript" src="js/jq.js"></script>
+		<script type="text/javascript" src="final/js/common.js"></script>
+		
+	</head>
 <body>
-<script>
+
+	<?php 
+	    if (!isset($_SESSION)) {
+	        session_start();
+	    }
+	    $now = microtime(true)*1000;
+	?>
+<script>        
+        sessionStorage.clear();
+        console.log(new Date().getTime());
+        console.log(Math.round(<?php echo $now;?>));
+        
+        sessionStorage.client_time_diff = JSON.stringify(new Date().getTime() - Math.round(<?php echo $now;?>));
   // This is called with the results from from FB.getLoginStatus().
 
   function statusChangeCallback(response) {
@@ -81,12 +98,25 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-    	console.log(response);
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+		// console.log(response);
+		console.log('Successful login for: ' + response.name);
+		document.getElementById('status').innerHTML =
+		'Thanks for registering, ' + response.name + '!';
+		jQuery('.fb-login-button').hide();
+		$.post( "final/functions.php", { 'arg': response.id, 'quantity': response.name } );
+
     });
   }
+  console.log(right_now());
+  var clock = new Countdown({
+  	time: Math.round((1407248962942+1000*60*60*24*4 - right_now())/1000), 
+  	width:500, 
+  	// target		: "clock_down",
+  	height:100, 
+  	style: "flip",
+  	rangeHi		: "day",		// The highest unit of time to display
+  	rangeLo		: "second",		// The lowest unit of time to display
+  });
 </script>
 
 <!--
@@ -96,6 +126,8 @@
 -->
 
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
+<div id="clock_down"></div>
+
 <div id="fb-root"></div>
 <div id="status">
 <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
