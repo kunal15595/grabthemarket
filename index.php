@@ -3,6 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="final/css/clock.css"/>
+		<link rel="stylesheet" type="text/css" href="final/css/index.css"/>
+		
 		<script type="text/javascript" src="clock/countdown.js" ></script>
 
 		<script type="text/javascript" src="js/jq.js"></script>
@@ -111,7 +113,7 @@
   var clock = new Countdown({
   	time: Math.round((1407248962942+1000*60*60*24*4 - right_now())/1000), 
   	width:500, 
-  	// target		: "clock_down",
+  	// target: "clock_down",
   	height:100, 
   	style: "flip",
   	rangeHi		: "day",		// The highest unit of time to display
