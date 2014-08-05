@@ -7,6 +7,7 @@
 <body>
 <script>
   // This is called with the results from from FB.getLoginStatus().
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -39,13 +40,14 @@
   }
 
   window.fbAsyncInit = function() {
-    FB.init({
-      appId      : 1392753500972228,
-      cookie     : true,  // enable cookies to allow the server to access 
-                          // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.0' // use version 2.0
-    });
+    // FB.init({
+    //   appId      : 1392753500972228,
+    //   cookie     : true,  // enable cookies to allow the server to access 
+    //                       // the session
+    //   xfbml      : true,  // parse social plugins on this page
+    //   version    : 'v2.0', // use version 2.0
+    //   oauth : true
+    // });
 
     // Now that we've initialized the JavaScript SDK, we call 
     // FB.getLoginStatus().  This function gets the state of the
@@ -70,7 +72,7 @@
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1392753500972228&version=v2.0";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
@@ -79,6 +81,7 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+    	console.log(response);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
@@ -92,10 +95,10 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
 <div id="fb-root"></div>
 <div id="status">
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
 </div>
 
 </body>
