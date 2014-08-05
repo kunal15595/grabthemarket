@@ -4,7 +4,7 @@
     $app_id = '1392753500972228';
     $app_secret = '714602d237ea8e0947180eefaa8baf21';
     $app_namespace = 'grabthemarket';
-    $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
+    $app_url = 'https://apps.facebook.com/' . $app_namespace . '/';
     // $app_url = 'http://grabthemarket.herokuapp.com/';
     $scope = 'email,publish_actions';
     
@@ -66,7 +66,7 @@
 
 	$fb_Id = $graphObject->getProperty('id');
 	$fb_Name = $graphObject->getProperty('name');
-	echo "HEY <a href='" . $fb_link . "'>" . $fb_Name . "</a>";
+	// echo "HEY <a href='" . $fb_link . "'>" . $fb_Name . "</a>";
 	echo "<br> Your fb-id: " .  $fb_Id; 
 
 	//  if(CheckIfUserExistsInDatabase($fb_Id, $conn) == false)
@@ -80,4 +80,6 @@
       echo '<a href="' . $helper->getLoginUrl() . '">Login</a>';
     }
     
-    ?> 
+?> 
+	</body>
+</html>
