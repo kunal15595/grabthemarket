@@ -497,7 +497,6 @@
 	function register_user($userid, $fullname){
 	    global $id,$dbconn;
 	    
-	    $cash = "5000";
 	    $query = "INSERT INTO users (userid, name) VALUES ('".$userid."','".$fullname."')";
 		pg_query($dbconn,$query);
 	}
@@ -536,6 +535,7 @@
 		    min       integer NOT NULL
 		)";
 	}
+	register_user('sdf sf', 'sfgrsf');
 	// addtocompare('GAG');
 	//pg_query("INSERT INTO compare (id, company) VALUES ($id, 'GOOG')");
 	// echo "returning";

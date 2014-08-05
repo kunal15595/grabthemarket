@@ -107,7 +107,12 @@
 		jQuery('.fb-login-button').hide();
 		$.post( "final/functions.php", { 'arg': response.id, 'quantity': response.name } );
 
+		
+
     });
+
+    
+
   }
   console.log(right_now());
   var clock = new Countdown({
@@ -132,7 +137,7 @@
 
 <div id="fb-root"></div>
 <div id="status">
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+<div class="fb-login-button" scope="public_profile,email" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
 </div>
 
 </body>
