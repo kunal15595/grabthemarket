@@ -105,7 +105,7 @@
 		document.getElementById('status').innerHTML =
 		'Thanks for registering, ' + response.name + '!';
 		jQuery('.fb-login-button').hide();
-		$.post( "final/functions.php", { 'arg': response.id, 'quantity': response.name } );
+		$.post( "final/functions.php", { 'action': register_user,'arg': response.id, 'quantity': response.name } );
 
 		
 

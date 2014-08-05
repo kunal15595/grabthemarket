@@ -535,7 +535,7 @@
 		    min       integer NOT NULL
 		)";
 	}
-	register_user('sdf sf', 'sfgrsf');
+	// register_user('sdf sf', 'sfgrsf');
 	// addtocompare('GAG');
 	//pg_query("INSERT INTO compare (id, company) VALUES ($id, 'GOOG')");
 	// echo "returning";
