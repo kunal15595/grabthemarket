@@ -18,6 +18,7 @@
 	    $now = microtime(true)*1000;
 	?>
 <script>
+		window.location = 'final/start.php';
         sessionStorage.clear();
         console.log(new Date().getTime());
         console.log(Math.round(<?php echo $now;?>));
@@ -34,6 +35,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+	  window.location = 'final/start.php';
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -105,8 +107,6 @@
 		// $.post( "final/functions.php", { 'action': 'register_user','arg': response.id, 'quantity': response.name } );
 		window.location = 'final/start.php';
     });
-
-
 
   }
 
