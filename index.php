@@ -4,26 +4,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="final/css/clock.css"/>
 		<link rel="stylesheet" type="text/css" href="final/css/index.css"/>
-		
+
 		<script type="text/javascript" src="clock/countdown.js" ></script>
 
 		<script type="text/javascript" src="js/jq.js"></script>
 		<script type="text/javascript" src="final/js/common.js"></script>
-		
+
 	</head>
 <body>
 
-	<?php 
+	<?php
 	    if (!isset($_SESSION)) {
 	        session_start();
 	    }
 	    $now = microtime(true)*1000;
 	?>
-<script>        
+<script>
         sessionStorage.clear();
         console.log(new Date().getTime());
         console.log(Math.round(<?php echo $now;?>));
-        
+
         sessionStorage.client_time_diff = JSON.stringify(new Date().getTime() - Math.round(<?php echo $now;?>));
   // This is called with the results from from FB.getLoginStatus().
 
@@ -61,14 +61,14 @@
   window.fbAsyncInit = function() {
     // FB.init({
     //   appId      : 1392753500972228,
-    //   cookie     : true,  // enable cookies to allow the server to access 
+    //   cookie     : true,  // enable cookies to allow the server to access
     //                       // the session
     //   xfbml      : true,  // parse social plugins on this page
     //   version    : 'v2.0', // use version 2.0
     //   oauth : true
     // });
 
-    // Now that we've initialized the JavaScript SDK, we call 
+    // Now that we've initialized the JavaScript SDK, we call
     // FB.getLoginStatus().  This function gets the state of the
     // person visiting this page and can return one of three states to
     // the callback you provide.  They can be:
@@ -106,20 +106,18 @@
 		'Thanks for registering, ' + response.name + '!';
 		jQuery('.fb-login-button').hide();
 		$.post( "final/functions.php", { 'action': 'register_user','arg': response.id, 'quantity': response.name } );
-
-		
-
+		window.location = 'final/start.php';
     });
 
-    
+
 
   }
   console.log(right_now());
   var clock = new Countdown({
-  	time: Math.round((1407248962942+1000*60*60*24*4 - right_now())/1000), 
-  	width:500, 
+  	time: Math.round((1407248962942+1000*60*60*24*4 - right_now())/1000),
+  	width:500,
   	// target: "clock_down",
-  	height:100, 
+	height:100,
   	style: "flip",
   	rangeHi		: "day",		// The highest unit of time to display
   	rangeLo		: "second",		// The lowest unit of time to display
