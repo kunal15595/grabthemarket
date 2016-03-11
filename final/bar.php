@@ -5,10 +5,11 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/load.css">
 	<script src="../js/jq.js" type="text/javascript"></script>
-	<script>		
+	<script>
 
 	$(document).ready(function() {
-		$('#content').removeClass('fullwidth');	    
+		$('#content').removeClass('fullwidth');
+		window.location = 'start.php';
 		$('#startgame').click(function(e) {
 	        e.preventDefault();
 			$('#content').removeClass('fullwidth').delay(10).queue(function(next){
@@ -16,9 +17,9 @@
 		        next();
 		    });
 		    setTimeout(function() {
-		    window.location = 'start.php';  
+		    window.location = 'start.php';
 		    }, 1000*10);
-		    
+
 		    return false;
 		});
 	});
