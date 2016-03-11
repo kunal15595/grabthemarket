@@ -5,8 +5,6 @@
 		<link rel="stylesheet" type="text/css" href="final/css/clock.css"/>
 		<link rel="stylesheet" type="text/css" href="final/css/index.css"/>
 
-		<script type="text/javascript" src="clock/countdown.js" ></script>
-
 		<script type="text/javascript" src="js/jq.js"></script>
 		<script type="text/javascript" src="final/js/common.js"></script>
 
@@ -102,26 +100,16 @@
     FB.api('/me', function(response) {
 		// console.log(response);
 		console.log('Successful login for: ' + response.name);
-		document.getElementById('status').innerHTML =
-		'Thanks for registering, ' + response.name + '!';
+
 		jQuery('.fb-login-button').hide();
-		$.post( "final/functions.php", { 'action': 'register_user','arg': response.id, 'quantity': response.name } );
+		// $.post( "final/functions.php", { 'action': 'register_user','arg': response.id, 'quantity': response.name } );
 		window.location = 'final/start.php';
     });
 
 
 
   }
-  console.log(right_now());
-  var clock = new Countdown({
-  	time: Math.round((1407248962942+1000*60*60*24*4 - right_now())/1000),
-  	width:500,
-  	// target: "clock_down",
-	height:100,
-  	style: "flip",
-  	rangeHi		: "day",		// The highest unit of time to display
-  	rangeLo		: "second",		// The lowest unit of time to display
-  });
+
 </script>
 
 <!--
@@ -131,7 +119,6 @@
 -->
 
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
-<div id="clock_down"></div>
 
 <div id="fb-root"></div>
 <div id="status">
